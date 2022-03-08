@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<ScrollPane fx:id="HomePageWindow" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="515.0" prefWidth="596.0" styleClass="primary_color" stylesheets="@css/app_styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.HomePage_Controller">
+   <content>
+      <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" spacing="10.0" styleClass="secondary_color">
+         <children>
+            <GridPane hgap="5.0" maxHeight="90.0" maxWidth="1000.0" prefHeight="200.0" prefWidth="513.0" styleClass="primary_color" vgap="5.0" VBox.vgrow="NEVER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="text-color" text="Overall Passwords Strength" GridPane.columnSpan="2">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <Text fx:id="OverallPasswordStrengthPercentageOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="100%" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin></Text>
+                  <ProgressBar fx:id="OverallPasswordStrengthBar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="200.0" progress="0.36" styleClass="password_strength" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label maxHeight="1.7976931348623157E308" style="-fx-text-fill: #90be6d;" styleClass="text-color" text="Strong">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Text fx:id="StrongPasswordCountOutput" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #90be6d;" styleClass="text-color" text="999" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="15.0" layoutY="82.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Label maxHeight="1.7976931348623157E308" style="-fx-text-fill: #f9c74f;" styleClass="text-color" text="Normal">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Text fx:id="NormalPasswordCountOutput" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #f9c74f;" styleClass="text-color" text="999" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="142.0" layoutY="82.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <Label maxHeight="1.7976931348623157E308" style="-fx-text-fill: #f8961e;" styleClass="text-color" text="Weak">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Text fx:id="WeakPasswordCountOutput" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #f8961e;" styleClass="text-color" text="999" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="269.0" layoutY="82.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <children>
+                        <Label maxHeight="1.7976931348623157E308" styleClass="text-color" text="Total" />
+                        <Text fx:id="TotalAccountsCountOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="9999" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </GridPane>
+            <TilePane alignment="TOP_CENTER" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" tileAlignment="BASELINE_CENTER" vgap="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox layoutX="28.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="264.0" spacing="10.0" styleClass="primary_color">
+                     <children>
+                        <Label fx:id="FavoriteAccountsCountOutput" prefHeight="43.0" prefWidth="56.0" styleClass="text-color" text="999">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="text-color" text="Favorite Accounts">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextFlow maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="150.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="All the accounts which are favorite are listed here" />
+                           </children>
+                        </TextFlow>
+                        <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="95.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#favoriteAccountsList" prefHeight="30.0" text="Show Accounts">
+                           <graphic>
+                              <SVGPath content="M 19 19 H 5 V 5 h 7 V 3 H 5 c -1.11 0 -2 0.9 -2 2 v 14 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 v -7 h -2 v 7 Z M 14 3 v 2 h 3.59 l -9.83 9.83 l 1.41 1.41 L 19 6.41 V 10 h 2 V 3 h -7 Z" styleClass="icon_button" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="264.0" spacing="10.0" styleClass="primary_color" TilePane.alignment="BOTTOM_LEFT">
+                     <children>
+                        <Label fx:id="ReusedPasswordCountOutput" prefHeight="43.0" prefWidth="56.0" styleClass="text-color" text="999">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="text-color" text="Reused Passwords">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextFlow maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="150.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="All the Accounts whose password is reused are listed here" />
+                           </children>
+                        </TextFlow>
+                        <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="95.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#IdenticalPasswordFilter" prefHeight="30.0" text="Show Accounts">
+                           <graphic>
+                              <SVGPath content="M 19 19 H 5 V 5 h 7 V 3 H 5 c -1.11 0 -2 0.9 -2 2 v 14 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 v -7 h -2 v 7 Z M 14 3 v 2 h 3.59 l -9.83 9.83 l 1.41 1.41 L 19 6.41 V 10 h 2 V 3 h -7 Z" styleClass="icon_button" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="264.0" spacing="10.0" styleClass="primary_color">
+                     <children>
+                        <Label fx:id="ReUsedEmailCountOutput" prefHeight="43.0" prefWidth="56.0" styleClass="text-color" text="999">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="text-color" text="Reused Email">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextFlow prefHeight="30.0" prefWidth="150.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="All the Accounts whose Email is reused are listed here" />
+                           </children>
+                        </TextFlow>
+                        <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="95.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#IdenticalAccountMailFilter" prefHeight="30.0" text="Show Accounts">
+                           <graphic>
+                              <SVGPath content="M 19 19 H 5 V 5 h 7 V 3 H 5 c -1.11 0 -2 0.9 -2 2 v 14 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 v -7 h -2 v 7 Z M 14 3 v 2 h 3.59 l -9.83 9.83 l 1.41 1.41 L 19 6.41 V 10 h 2 V 3 h -7 Z" styleClass="icon_button" />
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="264.0" spacing="10.0" styleClass="primary_color">
+                     <children>
+                        <Label fx:id="ReusedWebsiteCountOutput" prefHeight="43.0" prefWidth="56.0" styleClass="text-color" text="999">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="text-color" text="Reused Website">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextFlow maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="150.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="All the Accounts from same Website are listede here" />
+                           </children>
+                        </TextFlow>
+                        <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="95.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" text="Show Accounts">
+                           <graphic>
+                              <SVGPath content="M 19 19 H 5 V 5 h 7 V 3 H 5 c -1.11 0 -2 0.9 -2 2 v 14 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 v -7 h -2 v 7 Z M 14 3 v 2 h 3.59 l -9.83 9.83 l 1.41 1.41 L 19 6.41 V 10 h 2 V 3 h -7 Z" styleClass="icon_button" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="264.0" spacing="10.0" styleClass="primary_color">
+                     <children>
+                        <Label fx:id="weakPassCountOutput" prefHeight="43.0" prefWidth="56.0" styleClass="text-color" text="999">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="text-color" text="Weak Passwords">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextFlow prefHeight="30.0" prefWidth="150.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="All the Accounts whose password is weak are listed here" />
+                           </children>
+                        </TextFlow>
+                        <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="95.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#WeakAccountFilterButton" prefHeight="30.0" text="Show Accounts">
+                           <graphic>
+                              <SVGPath content="M 19 19 H 5 V 5 h 7 V 3 H 5 c -1.11 0 -2 0.9 -2 2 v 14 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 v -7 h -2 v 7 Z M 14 3 v 2 h 3.59 l -9.83 9.83 l 1.41 1.41 L 19 6.41 V 10 h 2 V 3 h -7 Z" styleClass="icon_button" />
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="264.0" spacing="10.0" styleClass="primary_color">
+                     <children>
+                        <Label fx:id="normalPassCountOutput" prefHeight="43.0" prefWidth="56.0" styleClass="text-color" text="999">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="text-color" text="Normal Passwords">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextFlow prefHeight="30.0" prefWidth="150.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="All the Accounts whose password is normal are listed here" />
+                           </children>
+                        </TextFlow>
+                        <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="95.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#NormalAccountFilterButton" prefHeight="30.0" text="Show Accounts">
+                           <graphic>
+                              <SVGPath content="M 19 19 H 5 V 5 h 7 V 3 H 5 c -1.11 0 -2 0.9 -2 2 v 14 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 v -7 h -2 v 7 Z M 14 3 v 2 h 3.59 l -9.83 9.83 l 1.41 1.41 L 19 6.41 V 10 h 2 V 3 h -7 Z" styleClass="icon_button" />
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="264.0" spacing="10.0" styleClass="primary_color">
+                     <children>
+                        <Label fx:id="strongPassCountOutput" prefHeight="43.0" prefWidth="56.0" styleClass="text-color" text="999">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="text-color" text="Strong Passwords">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextFlow prefHeight="30.0" prefWidth="150.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="All the Accounts whose password is Strong are listed here" />
+                           </children>
+                        </TextFlow>
+                        <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="95.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#StrongAccountFilterButton" prefHeight="30.0" text="Show Accounts">
+                           <graphic>
+                              <SVGPath content="M 19 19 H 5 V 5 h 7 V 3 H 5 c -1.11 0 -2 0.9 -2 2 v 14 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 v -7 h -2 v 7 Z M 14 3 v 2 h 3.59 l -9.83 9.83 l 1.41 1.41 L 19 6.41 V 10 h 2 V 3 h -7 Z" styleClass="icon_button" />
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="264.0" spacing="10.0" styleClass="primary_color">
+                     <children>
+                        <Label fx:id="newlyCreatedAccountsCountOutput" prefHeight="43.0" prefWidth="56.0" styleClass="text-color" text="999">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="text-color" text="New Accounts">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextFlow prefHeight="30.0" prefWidth="150.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="All the Accounts which are created within 30 days are displayed here" />
+                           </children>
+                        </TextFlow>
+                        <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="95.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#NewAccountFilterButton" prefHeight="30.0" text="Show Accounts">
+                           <graphic>
+                              <SVGPath content="M 19 19 H 5 V 5 h 7 V 3 H 5 c -1.11 0 -2 0.9 -2 2 v 14 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 v -7 h -2 v 7 Z M 14 3 v 2 h 3.59 l -9.83 9.83 l 1.41 1.41 L 19 6.41 V 10 h 2 V 3 h -7 Z" styleClass="icon_button" />
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </TilePane>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane>

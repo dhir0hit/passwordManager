@@ -1,0 +1,156 @@
+/*.password_strength {*/
+/*    !*-fx-accent: rgba(0, 138, 230, 0.85);*!*/
+/*    -fx-accent: rgba(64, 255, 0, 0.85);*/
+/*}*/
+
+.scroll-bar {
+    -fx-background-color: transparent;
+    -fx-pref-width: 7;
+}
+.scroll-pane .increment-button, .scroll-pane .decrement-button {
+    -fx-opacity: 0;
+
+}
+
+.password_strength .bar {
+    -fx-padding: 1px;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+.password_strength >.track {
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-text-box-border: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+.button {
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+    -fx-text-fill: white;
+    -fx-fill: white;
+}
+
+.active {
+    -fx-background-radius: 5px;
+}
+
+.menu_button {
+    -fx-background-color: rgba(51, 53, 51, 0.9);
+}
+
+.text-color {
+    -fx-text-fill: #D6D6D6;
+    -fx-fill: #adadad;
+}
+
+.active .label {
+    -fx-text-fill: #333533;
+}
+
+.icon_button {
+    -fx-fill: #adadad;
+    /*7am mon - fri*/
+}
+
+.topnavIcon_button {
+    -fx-fill:  #202020;
+    /*-fx-background-color: rgba(255, 238, 50, 0.9);*/
+}
+
+.topnav_input {
+    -fx-background-color: rgba(51, 53, 51, 0.9);
+
+}
+
+.password_show {
+    -fx-background-color: transparent;
+}
+
+.highlight_color {
+    -fx-background-color:  #FFD100;
+}
+
+.primary_color {
+    -fx-background-color:  #333533;
+}
+
+.secondary_color {
+    -fx-background-color:  #202020;
+}
+
+.grid-pane {
+    -fx-background-color: rgba(51, 53, 51, 0.9);
+}
+
+.button:hover {
+    -fx-background-color: rgba(51, 53, 51, 0.9);
+
+}
+.password_list{
+    -fx-pref-width: 206;
+    -fx-pref-height: 60;
+    -fx-fit-to-height: true;
+    -fx-fit-to-width: true;
+}
+
+.password_list:hover {
+    -fx-background-color: rgba(32, 32, 32, 0.66);
+}
+
+.menuTitle {
+    /*-fx-text-fill: White;*/
+    -fx-text-fill: black;
+    /*-fx-font-weight: bold;*/
+    -fx-font-family: "ui-monospace";
+    -fx-border-color: transparent;
+
+}
+
+.menuTitle > *.content {
+    -fx-background-color: null;
+    -fx-border-color: null;
+    -fx-border-width: 0;
+}
+
+.menuTitle > .title{
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+    -fx-background-radius: 0;
+
+}
+.menuTitle > .title > .arrow-button .arrow {
+    /*-fx-background-color: white;*/
+    -fx-background-color: white;
+}
+
+.menuTitle:focused{
+    -fx-border-color: transparent;
+
+}
+
+.menuTitle:focused > .title > .arrow-button{
+    -fx-background-color: null;
+}
+
+.menuTitle:focused > .title > .arrow-button .arrow
+{
+    -fx-background-color: white;
+    -fx-border-color: null;
+    -fx-effect: null;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

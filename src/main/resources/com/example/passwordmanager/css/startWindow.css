@@ -1,0 +1,19 @@
+.passwordField {
+    -fx-background-color: rgba(0, 0, 0, 0.24);
+    -fx-fill: white;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+}
+
+.button {
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+    -fx-text-fill: white;
+    -fx-fill: white;
+}
+.button:hover {
+    -fx-background-color: rgba(51, 53, 51, 0.9);
+
+}
+.progress-bar {
+    -fx-accent: #FFD100;
+}

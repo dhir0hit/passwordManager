@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<StackPane maxHeight="500.0" maxWidth="750.0" prefHeight="500.0" prefWidth="750.0" stylesheets="@css/startWindow.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.startWindowController">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" blendMode="DARKEN" fill="#1f1f1f" height="486.0" layoutX="453.0" layoutY="-59.0" rotate="-49.2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="639.0" />
+            <ImageView fitHeight="384.0" fitWidth="451.0" layoutX="238.0" layoutY="325.0" pickOnBounds="true" rotate="40.8">
+               <image>
+                  <Image url="@media/Grey-Background.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd100" height="486.0" layoutX="-251.0" layoutY="-131.0" rotate="130.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="895.0" />
+         </children>
+      </Pane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="750.0">
+         <children>
+            <TextFlow layoutX="510.0" layoutY="153.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="This software is not meant to be sold, created for personal use only! " />
+                  <Text fill="WHITE" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Manager was created to store passwords and created by only one person to learn deeply about creating softwares" />
+               </children>
+            </TextFlow>
+            <TextFlow layoutX="309.0" layoutY="456.0" prefHeight="58.0" prefWidth="215.0">
+               <children>
+                  <Text fill="#d6d6d6" strokeType="OUTSIDE" strokeWidth="0.0" text="Save your login information with our offline software with great protection" wrappingWidth="220.78515625">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+            </TextFlow>
+            <TextFlow layoutX="155.0" layoutY="181.0" prefHeight="14.0" prefWidth="70.0" translateZ="-1.0">
+               <children>
+                  <Text fx:id="inputErrorDisplay" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Try again!" visible="false">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </TextFlow>
+            <ProgressBar fx:id="progressBarLoading" layoutX="59.0" layoutY="249.0" prefHeight="18.0" prefWidth="686.0" rotate="-49.8" styleClass="password_strength" stylesheets="@css/app_styles.css" visible="false" />
+         </children>
+      </AnchorPane>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="514.0" prefWidth="268.0" spacing="10.0" translateX="-118.0">
+               <children>
+                  <TextFlow maxWidth="1.7976931348623157E308" prefHeight="73.0" prefWidth="170.0" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="welcomeMessage1" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello " textAlignment="CENTER" wrappingWidth="204.51171875">
+                           <font>
+                              <Font name="Corbel" size="23.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="accessUserName" fontSmoothingType="LCD" layoutX="32.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="there" textAlignment="CENTER" wrappingWidth="204.51171875">
+                           <font>
+                              <Font name="Corbel" size="23.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="welcomeMessage2" fontSmoothingType="LCD" layoutX="11.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text=", Welcome to Password Manager" textAlignment="CENTER" wrappingWidth="213.12255859375">
+                           <font>
+                              <Font name="Corbel" size="23.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </TextFlow>
+                  <VBox fx:id="inputContainer" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="23.0" prefWidth="170.0" spacing="6.0">
+                           <children>
+                              <PasswordField fx:id="passwordInput" maxHeight="1.7976931348623157E308" onKeyPressed="#passwordInputCheck" prefHeight="25.0" promptText="Password" styleClass="passwordField">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </PasswordField>
+                              <Button contentDisplay="GRAPHIC_ONLY" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#SubmitPass" scaleZ="14.0" stylesheets="@css/startWindow.css">
+                                 <graphic>
+                                    <SVGPath content="M 11 7 L 9.6 8.4 l 2.6 2.6 H 2 v 2 h 10.2 l -2.6 2.6 L 11 17 l 5 -5 L 11 7 Z M 20 19 h -8 v 2 h 8 c 1.1 0 2 -0.9 2 -2 V 5 c 0 -1.1 -0.9 -2 -2 -2 h -8 v 2 h 8 V 19 Z" styleClass="button" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <TextField fx:id="hintInputField" maxWidth="214.0" minHeight="30.0" prefHeight="30.0" prefWidth="170.0" promptText="Hint (optional)" styleClass="passwordField">
+                           <VBox.margin>
+                              <Insets left="28.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextFlow prefHeight="155.0" prefWidth="170.0">
+                           <children>
+                              <Label fx:id="hintLabel" text="Hint:">
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Text fx:id="passwordHintOutput" strokeType="OUTSIDE" strokeWidth="0.0" text="A nice way to express your password" wrappingWidth="261.4130859375">
+                                 <font>
+                                    <Font name="Arial" size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="closeButton" cancelButton="true" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#closeButtonMethod" prefHeight="30.0" prefWidth="70.0" rotate="-50.0" text="Close" translateX="35.0" translateY="-201.0">
+                     <graphic>
+                        <SVGPath content="M 19 6.41 L 17.59 5 L 12 10.59 L 6.41 5 L 5 6.41 L 10.59 12 L 5 17.59 L 6.41 19 L 12 13.41 L 17.59 19 L 19 17.59 L 13.41 12 L 19 6.41 Z" styleClass="button" />
+                     </graphic>
+                  </Button>
+                  <Label alignment="CENTER" rotate="42.0" text="\@dhir0hit" textFill="#d6d6d6" translateX="-61.0" translateY="-11.0">
+                     <font>
+                        <Font name="Roboto" size="12.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</StackPane>

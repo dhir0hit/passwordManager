@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<HBox fx:id="MenuPageWIndow" prefHeight="515.0" prefWidth="596.0" stylesheets="@css/app_styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.AccountsPage_Controller">
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1200.0" maxWidth="500.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="220.0" styleClass="primary_color" stylesheets="@css/app_styles.css" HBox.hgrow="ALWAYS">
+         <content>
+            <VBox fx:id="accountOutputList" maxHeight="1200.0" maxWidth="500.0" prefHeight="465.0" prefWidth="251.0" spacing="10.0" styleClass="primary_color">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <VBox fx:id="displaySelectedAccountInfo" alignment="TOP_CENTER" prefHeight="467.0" prefWidth="381.0" styleClass="secondary_color" HBox.hgrow="ALWAYS">
+         <children>
+            <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="primary_color">
+               <items>
+                  <Button accessibleHelp="delete current account" accessibleText="Delete" mnemonicParsing="false" onAction="#deleteCurrentAccount" prefHeight="30.0" prefWidth="36.0">
+                     <graphic>
+                        <SVGPath content="M 16 9 v 10 H 8 V 9 h 8 m -1.5 -6 h -5 l -1 1 H 5 v 2 h 14 V 4 h -3.5 l -1 -1 Z M 18 7 H 6 v 12 c 0 1.1 0.9 2 2 2 h 8 c 1.1 0 2 -0.9 2 -2 V 7 Z" styleClass="icon_button" />
+                     </graphic>
+                  </Button>
+                  <Button accessibleHelp="Edit opened account" accessibleText="Edit" layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#EditCurrentAccount" prefHeight="30.0" prefWidth="36.0">
+                     <graphic>
+                        <SVGPath content="M 3 10 h 11 v 2 H 3 V 10 Z M 3 8 h 11 V 6 H 3 V 8 Z M 3 16 h 7 v -2 H 3 V 16 Z M 18.01 12.87 l 0.71 -0.71 c 0.39 -0.39 1.02 -0.39 1.41 0 l 0.71 0.71 c 0.39 0.39 0.39 1.02 0 1.41 l -0.71 0.71 L 18.01 12.87 Z M 17.3 13.58 l -5.3 5.3 V 21 h 2.12 l 5.3 -5.3 L 17.3 13.58 Z" styleClass="icon_button" />
+                     </graphic>
+                  </Button>
+                  <StackPane prefHeight="0.0" prefWidth="5.0">
+                     <children>
+                        <Button accessibleHelp="Favorite current account" accessibleText="Favorite" mnemonicParsing="false" onAction="#favoriteCurrentAccount" prefHeight="30.0" prefWidth="36.0">
+                           <graphic>
+                              <SVGPath fx:id="accountFavorite" content="M 22 9.24 l -7.19 -0.62 L 12 2 L 9.19 8.63 L 2 9.24 l 5.46 4.73 L 5.82 21 L 12 17.27 L 18.18 21 l -1.63 -7.03 L 22 9.24 Z M 12 15.4 l -3.76 2.27 l 1 -4.28 l -3.32 -2.88 l 4.38 -0.38 L 12 6.1 l 1.71 4.04 l 4.38 0.38 l -3.32 2.88 l 1 4.28 L 12 15.4 Z" styleClass="icon_button" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </StackPane>
+               </items>
+            </ToolBar>
+            <ProgressBar fx:id="passwordStrength" maxWidth="1200.0" prefHeight="2.0" prefWidth="359.0" progress="0.46" styleClass="password_strength" />
+            <HBox alignment="CENTER_LEFT" prefHeight="19.0" prefWidth="331.0" spacing="20.0">
+               <children>
+                  <ImageView fx:id="accountLogoOutput" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@media/Grey-Background.png" />
+                     </image>
+                  </ImageView>
+                  <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="AccountNameOutput" prefHeight="60.0" prefWidth="266.0" styleClass="text-color" text="Account Name">
+                           <font>
+                              <Font name="Berlin Sans FB" size="22.0" />
+                           </font>
+                        </Label>
+                        <Text fx:id="accountIdOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="account id">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <GridPane alignment="CENTER" hgap="15.0" maxWidth="550.0" prefWidth="200.0" styleClass="grid-pane">
+               <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="147.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="170.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label styleClass="text-color" text="Username">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label styleClass="text-color" text="E-mail" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label styleClass="text-color" text="Website" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#AccountPasswordCopy" StackPane.alignment="CENTER_RIGHT">
+                           <graphic>
+                              <SVGPath content="M15,20H5V7c0-0.55-0.45-1-1-1h0C3.45,6,3,6.45,3,7v13c0,1.1,0.9,2,2,2h10c0.55,0,1-0.45,1-1v0C16,20.45,15.55,20,15,20z M20,16V4c0-1.1-0.9-2-2-2H9C7.9,2,7,2.9,7,4v12c0,1.1,0.9,2,2,2h9C19.1,18,20,17.1,20,16z M18,16H9V4h9V16z" styleClass="icon_button" />
+                           </graphic>
+                           <StackPane.margin>
+                              <Insets right="2.0" />
+                           </StackPane.margin>
+                        </Button>
+                        <Text fx:id="accountPassHiddenOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="●●●●●●●●●●" wrappingWidth="133.48046875" StackPane.alignment="CENTER_LEFT">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Text>
+                        <Text fx:id="accountPassVisibleOutput" layoutX="10.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="visible" visible="false" wrappingWidth="133.48046875" StackPane.alignment="CENTER_LEFT" />
+                        <StackPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" translateX="38.0">
+                           <children>
+                              <SVGPath fx:id="visible" content="M 12 6 c 3.79 0 7.17 2.13 8.82 5.5 C 19.17 14.87 15.79 17 12 17 s -7.17 -2.13 -8.82 -5.5 C 4.83 8.13 8.21 6 12 6 m 0 -2 C 7 4 2.73 7.11 1 11.5 C 2.73 15.89 7 19 12 19 s 9.27 -3.11 11 -7.5 C 21.27 7.11 17 4 12 4 Z m 0 5 c 1.38 0 2.5 1.12 2.5 2.5 S 13.38 14 12 14 s -2.5 -1.12 -2.5 -2.5 S 10.62 9 12 9 m 0 -2 c -2.48 0 -4.5 2.02 -4.5 4.5 S 9.52 16 12 16 s 4.5 -2.02 4.5 -4.5 S 14.48 7 12 7 Z" fill="WHITE" />
+                              <SVGPath fx:id="visibilityOff" content="M 12 6 c 3.79 0 7.17 2.13 8.82 5.5 c -0.59 1.22 -1.42 2.27 -2.41 3.12 l 1.41 1.41 c 1.39 -1.23 2.49 -2.77 3.18 -4.53 C 21.27 7.11 17 4 12 4 c -1.27 0 -2.49 0.2 -3.64 0.57 l 1.65 1.65 C 10.66 6.09 11.32 6 12 6 Z m -1.07 1.14 L 13 9.21 c 0.57 0.25 1.03 0.71 1.28 1.28 l 2.07 2.07 c 0.08 -0.34 0.14 -0.7 0.14 -1.07 C 16.5 9.01 14.48 7 12 7 c -0.37 0 -0.72 0.05 -1.07 0.14 Z M 2.01 3.87 l 2.68 2.68 C 3.06 7.83 1.77 9.53 1 11.5 C 2.73 15.89 7 19 12 19 c 1.52 0 2.98 -0.29 4.32 -0.82 l 3.42 3.42 l 1.41 -1.41 L 3.42 2.45 L 2.01 3.87 Z m 7.5 7.5 l 2.61 2.61 c -0.04 0.01 -0.08 0.02 -0.12 0.02 c -1.38 0 -2.5 -1.12 -2.5 -2.5 c 0 -0.05 0.01 -0.08 0.01 -0.13 Z m -3.4 -3.4 l 1.75 1.75 c -0.23 0.55 -0.36 1.15 -0.36 1.78 c 0 2.48 2.02 4.5 4.5 4.5 c 0.63 0 1.23 -0.13 1.77 -0.36 l 0.98 0.98 c -0.88 0.24 -1.8 0.38 -2.75 0.38 c -3.79 0 -7.17 -2.13 -8.82 -5.5 c 0.7 -1.43 1.72 -2.61 2.93 -3.53 Z" fill="WHITE" layoutX="59.0" layoutY="14.0" visible="false">
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </SVGPath>
+                              <CheckBox fx:id="passwordHide" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#passwordShowCheckBox" opacity="0.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </CheckBox>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <Text fx:id="userNameOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="username" wrappingWidth="132.15771484375" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                        <Button mnemonicParsing="false" onAction="#UserNameCopy" StackPane.alignment="CENTER_RIGHT">
+                           <graphic>
+                              <SVGPath content="M15,20H5V7c0-0.55-0.45-1-1-1h0C3.45,6,3,6.45,3,7v13c0,1.1,0.9,2,2,2h10c0.55,0,1-0.45,1-1v0C16,20.45,15.55,20,15,20z M20,16V4c0-1.1-0.9-2-2-2H9C7.9,2,7,2.9,7,4v12c0,1.1,0.9,2,2,2h9C19.1,18,20,17.1,20,16z M18,16H9V4h9V16z" styleClass="icon_button" />
+                           </graphic>
+                           <StackPane.margin>
+                              <Insets right="2.0" />
+                           </StackPane.margin>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Text fx:id="accountMailOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="mail" wrappingWidth="133.1083984375" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                        <Button mnemonicParsing="false" onAction="#AccountMailCopy" StackPane.alignment="CENTER_RIGHT">
+                           <graphic>
+                              <SVGPath content="M15,20H5V7c0-0.55-0.45-1-1-1h0C3.45,6,3,6.45,3,7v13c0,1.1,0.9,2,2,2h10c0.55,0,1-0.45,1-1v0C16,20.45,15.55,20,15,20z M20,16V4c0-1.1-0.9-2-2-2H9C7.9,2,7,2.9,7,4v12c0,1.1,0.9,2,2,2h9C19.1,18,20,17.1,20,16z M18,16H9V4h9V16z" styleClass="icon_button" />
+                           </graphic>
+                           <StackPane.margin>
+                              <Insets right="2.0" />
+                           </StackPane.margin>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Text fx:id="accountWebsiteOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="site" wrappingWidth="130.8681640625" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                        <Button mnemonicParsing="false" onAction="#AccountWebsiteCopy" StackPane.alignment="CENTER_RIGHT">
+                           <graphic>
+                              <SVGPath content="M15,20H5V7c0-0.55-0.45-1-1-1h0C3.45,6,3,6.45,3,7v13c0,1.1,0.9,2,2,2h10c0.55,0,1-0.45,1-1v0C16,20.45,15.55,20,15,20z M20,16V4c0-1.1-0.9-2-2-2H9C7.9,2,7,2.9,7,4v12c0,1.1,0.9,2,2,2h9C19.1,18,20,17.1,20,16z M18,16H9V4h9V16z" styleClass="icon_button" />
+                           </graphic>
+                           <StackPane.margin>
+                              <Insets right="2.0" />
+                           </StackPane.margin>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" styleClass="text-color" text="Password">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <TextFlow maxHeight="120.0" maxWidth="550.0" prefHeight="59.0" prefWidth="359.0">
+               <children>
+                  <Label styleClass="text-color" text="Additional Info">
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="accountAdditionalInfoOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="additonal info is displayed here which was written when account was createdadditonal info is displayed here which was written when accouadditonal info is displayed here which was written when account was crea" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextFlow>
+            <Region prefHeight="78.0" prefWidth="332.0" VBox.vgrow="ALWAYS" />
+            <GridPane alignment="BOTTOM_RIGHT" hgap="15.0" maxWidth="1000.0" prefHeight="37.0" prefWidth="359.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="258.0" minWidth="10.0" prefWidth="241.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.0" minWidth="10.0" prefWidth="76.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="18.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label styleClass="text-color" text="Created" />
+                  <Text fx:id="accountCreationDateOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="date" GridPane.columnIndex="1" />
+                  <Label styleClass="text-color" text="Last Edited" GridPane.rowIndex="1" />
+                  <Text fx:id="accountModifiedDateOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="date" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+         <padding>
+            <Insets bottom="7.0" />
+         </padding>
+      </VBox>
+   </children>
+</HBox>
