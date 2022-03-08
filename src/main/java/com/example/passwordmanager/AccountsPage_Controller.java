@@ -19,6 +19,7 @@ import javafx.scene.text.Text;
 
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AccountsPage_Controller implements Initializable {
@@ -81,6 +82,10 @@ public class AccountsPage_Controller implements Initializable {
     private SVGPath visible;
 
     protected static Boolean isFavorite;
+    protected static List<String> accountPlatformList;
+    protected static List<String> accountNameList;
+    protected static List<String> accountMailList;
+    protected static List<String> accountIconList;
 
     @FXML
     void AccountMailCopy(ActionEvent event) {
@@ -132,7 +137,7 @@ public class AccountsPage_Controller implements Initializable {
     }
 
     public void loadAccountList() {
-        HBox tempAccountInfo = new HBox();
+        HBox tempAccountInfo;
         int accountNo = 0;
 
         for (int account = 0; account < accessData.AccountCount; account++) {
@@ -145,7 +150,7 @@ public class AccountsPage_Controller implements Initializable {
             // label 1 style for account name
             Label label1 = new Label();
 //            label1.setText("Account Name (Account Name)");
-            label1.setText(accessData.accountPlatforms.get(account) + " (" + accessData.accountNames.get(account));
+            label1.setText(accountPlatformList.get(account) + " (" + accountNameList.get(account));
             label1.setStyle("-fx-font-size: 18px");
             label1.getStyleClass().add("text-color");
             label1.prefWidth(144);
@@ -158,7 +163,7 @@ public class AccountsPage_Controller implements Initializable {
             // label 2 style for email
             Label label2 = new Label();
             label2.setText("email");
-            label2.setText(accessData.accountMails.get(account));
+            label2.setText(accountMailList.get(account));
             label2.setStyle("-fx-font-size: 12px");
             label2.getStyleClass().add("text-color");
             label2.prefWidth(144);
@@ -177,7 +182,7 @@ public class AccountsPage_Controller implements Initializable {
 
             // styling image view
             try {
-                imageView.setImage(new Image(getClass().getResource(accessData.accountIcons.get(account)).toURI().toString(), 60, 60, false, true));
+                imageView.setImage(new Image(getClass().getResource(accountIconList.get(account)).toURI().toString(), 60, 60, false, true));
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }

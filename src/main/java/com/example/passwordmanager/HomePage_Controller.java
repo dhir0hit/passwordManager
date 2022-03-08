@@ -98,10 +98,11 @@ public class HomePage_Controller implements Initializable {
         OverallPasswordStrengthBar.setProgress(accessData.OverAllPasswordStrength);
         OverallPasswordStrengthPercentageOutput.setText(String.format("%.2f", accessData.OverAllPasswordStrength*100) + "%");
 
-
+        FavoriteAccountsCountOutput.setText(String.valueOf(accessData.FavoriteAccounts.size()));
         ReusedPasswordCountOutput.setText(String.valueOf(accessData.reUsedPassWords.size()));
         ReUsedEmailCountOutput.setText(String.valueOf(accessData.reUsedMails.size()));
         ReusedWebsiteCountOutput.setText(String.valueOf(accessData.reUsedWebsites.size()));
+        newlyCreatedAccountsCountOutput.setText(String.valueOf(accessData.newAccounts.size()));
 
         StrongPasswordCountOutput.setText(String.valueOf(accessData.StrongPassWords.size()));
         strongPassCountOutput.setText(String.valueOf(accessData.StrongPassWords.size()));
@@ -110,6 +111,8 @@ public class HomePage_Controller implements Initializable {
         WeakPasswordCountOutput.setText(String.valueOf(accessData.WeakPassWords.size()));
         weakPassCountOutput.setText(String.valueOf(accessData.WeakPassWords.size()));
         TotalAccountsCountOutput.setText(String.valueOf(accessData.AccountCount));
+
+
 
         if (accessData.OverAllPasswordStrength <= 0.18) {
             OverallPasswordStrengthBar.setStyle("-fx-accent:  #f8301e");

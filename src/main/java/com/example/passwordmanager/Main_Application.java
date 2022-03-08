@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Main_Application implements Initializable {
@@ -114,7 +115,12 @@ public class Main_Application implements Initializable {
 
     @FXML
     void openAccountsWindow(ActionEvent event) {
-        openWindow("AccountsPage");
+        openWindow("AccountsPage",
+                accessData.accountPlatforms,
+                accessData.accountNames,
+                accessData.accountMails,
+                accessData.accountIcons
+        );
     }
 
     @FXML
@@ -173,8 +179,34 @@ public class Main_Application implements Initializable {
                 case "HomePage":
                     pane = (ScrollPane) fxmlLoader.load();
                     break;
+                default:
+                    pane = (ScrollPane) fxmlLoader.load();
+                    break;
+            }
+            if (!MainWindow.getChildren().contains(pane)) {
+                if (MainWindow.getChildren().size() == 2) {
+                    System.out.println(MainWindow.getChildren().size());
+                    MainWindow.getChildren().remove(1);
+                }
+                MainWindow.getChildren().add((Node) pane);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void openWindow(String pageName, List<String> AccountPlatforms, List<String> AccountNames, List<String> AccountMail, List<String> AccountIcon) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(pageName + ".fxml"));
+        Object pane = null;
+        try {
+            switch (pageName) {
                 case "AccountsPage":
                     pane = (HBox) fxmlLoader.load();
+                    AccountsPage_Controller.accountPlatformList = AccountPlatforms;
+                    AccountsPage_Controller.accountNameList = AccountNames;
+                    AccountsPage_Controller.accountMailList = AccountMail;
+                    AccountsPage_Controller.accountIconList = AccountIcon;
                     break;
                 default:
                     pane = (ScrollPane) fxmlLoader.load();

@@ -15,9 +15,11 @@ public class accessData {
     static String dataFileName = "accountDataFile.csv";
     protected static double OverAllPasswordStrength=0;
 
-    protected static List<String> reUsedPassWords = new ArrayList<>();
-    protected static List<String> reUsedMails = new ArrayList<>();
-    protected static List<String> reUsedWebsites = new ArrayList<>();
+    protected static List<Integer> reUsedPassWords = new ArrayList<>();
+    protected static List<Integer> reUsedMails = new ArrayList<>();
+    protected static List<Integer> reUsedWebsites = new ArrayList<>();
+    protected static List<Integer> FavoriteAccounts = new ArrayList<>();
+    protected static List<LocalDate> newAccounts = new ArrayList<>();
 
     protected static List<String> WeakPassWords = new ArrayList<>();
     protected static List<String> NormalPassWords = new ArrayList<>();
@@ -194,6 +196,10 @@ public class accessData {
                 // strength
                 OverAllPasswordStrength += PasswordStrengthPercent(accounts[2]);
 
+                if (Boolean.parseBoolean(accounts[9].strip())) {
+                    FavoriteAccounts.add(Integer.parseInt(accounts[0].strip()));
+                }
+
                 // password strength list
                 if (PasswordStrengthPercent(accounts[2].strip()) <= 0.30) {
                     WeakPassWords.add(accounts[2].strip());
@@ -317,23 +323,30 @@ public class accessData {
     }
 
     static void reusedInfo() {
+
+        // add these values above
+
+
+
         HashSet unique=new HashSet();
-        for (String s:accountPasswords) {
-            if(!unique.add(s));
-        }
-        reUsedPassWords.addAll(unique);
+        for (int i=0; i<AccountCount; i++) {
+            if(!unique.add(accountPasswords.get(i))){
+                reUsedPassWords.add(accountIds.get(i));
+            }
 
-        unique=new HashSet();
-        for (String s:accountMails) {
-            if(!unique.add(s));
-        }
-        reUsedMails.addAll(unique);
+            if(!unique.add(accountMails.get(i))){
+                reUsedMails.add(accountIds.get(i));
+            }
 
-        unique=new HashSet();
-        for (String s:accountWebsites) {
-            if(!unique.add(s));
+            if(!unique.add(accountWebsites.get(i))){
+                reUsedWebsites.add(accountIds.get(i));
+            }
+
+            if (LocalDate.now().getMonth() == (accountCreationDate.get(i).getMonth().plus(1))
+                    && LocalDate.now().getYear() == accountCreationDate.get(i).getYear()) {
+                newAccounts.add(accountCreationDate.get(i));
+            }
         }
-        reUsedWebsites.addAll(unique);
     }
 
 //    static void reusedInfo() {
