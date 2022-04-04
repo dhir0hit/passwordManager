@@ -10,6 +10,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.text.Text;
@@ -17,6 +18,7 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -43,6 +45,8 @@ public class Main_Application implements Initializable {
     @FXML
     private SVGPath nightIconGreeting;
 
+    protected static List<Integer> accountIdsList = new ArrayList<>();
+
     @FXML
     void ArchivedAccountsFilter(ActionEvent event) {
 
@@ -65,17 +69,17 @@ public class Main_Application implements Initializable {
 
     @FXML
     void IdenticalAccountMailFilter(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.reUsedMails);
     }
 
     @FXML
     void IdenticalPasswordFilter(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.reUsedPassWords);
     }
 
     @FXML
     void IdenticalAccountWebsiteFilter(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.reUsedWebsites);
     }
 
     @FXML
@@ -90,7 +94,7 @@ public class Main_Application implements Initializable {
 
     @FXML
     void RecentCreatedAccounts(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.newAccounts);
     }
 
     @FXML
@@ -100,27 +104,23 @@ public class Main_Application implements Initializable {
 
     @FXML
     void WeakAccountFilterButton(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.WeakPassWords);
     }
 
     @FXML
     void createNewAccount(ActionEvent event) {
-
+        openWindow("newAccount");
     }
 
     @FXML
     void favoriteAccountsList(ActionEvent event) {
-
+        System.out.println(accessData.FavoriteAccounts);
+        openWindow("AccountsPage", accessData.FavoriteAccounts);
     }
 
     @FXML
     void openAccountsWindow(ActionEvent event) {
-        openWindow("AccountsPage",
-                accessData.accountPlatforms,
-                accessData.accountNames,
-                accessData.accountMails,
-                accessData.accountIcons
-        );
+        openWindow("AccountsPage", accessData.accountIds);
     }
 
     @FXML
@@ -179,15 +179,20 @@ public class Main_Application implements Initializable {
                 case "HomePage":
                     pane = (ScrollPane) fxmlLoader.load();
                     break;
+
+                case "newAccount":
+                    pane = (HBox) fxmlLoader.load();
+                    break;
                 default:
                     pane = (ScrollPane) fxmlLoader.load();
                     break;
             }
+
             if (!MainWindow.getChildren().contains(pane)) {
                 if (MainWindow.getChildren().size() == 2) {
-                    System.out.println(MainWindow.getChildren().size());
                     MainWindow.getChildren().remove(1);
                 }
+                VBox.setVgrow((Node) pane, Priority.ALWAYS);
                 MainWindow.getChildren().add((Node) pane);
             }
 
@@ -196,17 +201,14 @@ public class Main_Application implements Initializable {
         }
     }
 
-    void openWindow(String pageName, List<String> AccountPlatforms, List<String> AccountNames, List<String> AccountMail, List<String> AccountIcon) {
+    void openWindow(String pageName, List<Integer> AccountIds) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(pageName + ".fxml"));
         Object pane = null;
         try {
             switch (pageName) {
                 case "AccountsPage":
+                    accountIdsList = AccountIds;
                     pane = (HBox) fxmlLoader.load();
-                    AccountsPage_Controller.accountPlatformList = AccountPlatforms;
-                    AccountsPage_Controller.accountNameList = AccountNames;
-                    AccountsPage_Controller.accountMailList = AccountMail;
-                    AccountsPage_Controller.accountIconList = AccountIcon;
                     break;
                 default:
                     pane = (ScrollPane) fxmlLoader.load();
@@ -216,9 +218,9 @@ public class Main_Application implements Initializable {
 
             if (!MainWindow.getChildren().contains(pane)) {
                 if (MainWindow.getChildren().size() == 2) {
-                    System.out.println(MainWindow.getChildren().size());
                     MainWindow.getChildren().remove(1);
                 }
+                VBox.setVgrow((Node) pane, Priority.ALWAYS);
                 MainWindow.getChildren().add((Node) pane);
             }
 

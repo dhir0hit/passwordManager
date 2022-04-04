@@ -10,20 +10,21 @@ import java.util.*;
 public class accessData {
 
     protected static int AccountCount = 0;
+    protected static int LastAccountId = 0;
 
     static String accessFileName = "accessData.txt";
     static String dataFileName = "accountDataFile.csv";
-    protected static double OverAllPasswordStrength=0;
+    protected static double OverAllPasswordStrength = 0;
 
     protected static List<Integer> reUsedPassWords = new ArrayList<>();
     protected static List<Integer> reUsedMails = new ArrayList<>();
     protected static List<Integer> reUsedWebsites = new ArrayList<>();
     protected static List<Integer> FavoriteAccounts = new ArrayList<>();
-    protected static List<LocalDate> newAccounts = new ArrayList<>();
+    protected static List<Integer> newAccounts = new ArrayList<>();
 
-    protected static List<String> WeakPassWords = new ArrayList<>();
-    protected static List<String> NormalPassWords = new ArrayList<>();
-    protected static List<String> StrongPassWords = new ArrayList<>();
+    protected static List<Integer> WeakPassWords = new ArrayList<>();
+    protected static List<Integer> NormalPassWords = new ArrayList<>();
+    protected static List<Integer> StrongPassWords = new ArrayList<>();
 
     protected static List<Integer> accountIds = new ArrayList<>();
     protected static List<String> accountNames = new ArrayList<>();
@@ -158,6 +159,11 @@ public class accessData {
         accountModifiedDate = new ArrayList<>();
         isAccountsFavorite = new ArrayList<>();
         accountIcons = new ArrayList<>();
+        OverAllPasswordStrength = 0;
+        FavoriteAccounts = new ArrayList<>();
+        WeakPassWords = new ArrayList<>();
+        NormalPassWords = new ArrayList<>();
+        StrongPassWords = new ArrayList<>();
 
         try {
             Scanner scanner = new Scanner(new File(dataFileName));
@@ -165,7 +171,9 @@ public class accessData {
                 AccountCount++;
 
                 accounts = (scanner.nextLine().split(","));
-                accountIds.add(Integer.valueOf(accounts[0]));
+                LastAccountId = Integer.parseInt(accounts[0].strip());
+
+                accountIds.add(Integer.valueOf(accounts[0].strip()));
                 accountNames.add(accounts[1].strip());
                 accountPasswords.add(accounts[2].strip());
                 accountMails.add(accounts[3].strip());
@@ -202,13 +210,13 @@ public class accessData {
 
                 // password strength list
                 if (PasswordStrengthPercent(accounts[2].strip()) <= 0.30) {
-                    WeakPassWords.add(accounts[2].strip());
+                    WeakPassWords.add(Integer.parseInt(accounts[0]));
                 }
                 else if(PasswordStrengthPercent(accounts[2].strip()) <= 0.60) {
-                    NormalPassWords.add(accounts[2].strip());
+                    NormalPassWords.add(Integer.parseInt(accounts[0]));
                 }
                 else {
-                    StrongPassWords.add(accounts[2].strip());
+                    StrongPassWords.add(Integer.parseInt(accounts[0]));
                 }
 
             }
@@ -344,7 +352,7 @@ public class accessData {
 
             if (LocalDate.now().getMonth() == (accountCreationDate.get(i).getMonth().plus(1))
                     && LocalDate.now().getYear() == accountCreationDate.get(i).getYear()) {
-                newAccounts.add(accountCreationDate.get(i));
+                newAccounts.add(accountIds.get(i));
             }
         }
     }

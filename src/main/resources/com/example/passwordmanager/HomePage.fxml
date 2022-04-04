@@ -16,9 +16,9 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<ScrollPane fx:id="HomePageWindow" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="515.0" prefWidth="596.0" styleClass="primary_color" stylesheets="@css/app_styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.HomePage_Controller">
+<ScrollPane fx:id="HomePageWindow" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1000.0" maxWidth="1.7976931348623157E308" prefHeight="515.0" prefWidth="596.0" styleClass="primary_color" stylesheets="@css/app_styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.HomePage_Controller">
    <content>
-      <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" spacing="10.0" styleClass="secondary_color">
+      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" spacing="10.0" styleClass="secondary_color">
          <children>
             <GridPane hgap="5.0" maxHeight="90.0" maxWidth="1000.0" prefHeight="200.0" prefWidth="513.0" styleClass="primary_color" vgap="5.0" VBox.vgrow="NEVER">
                <columnConstraints>

@@ -101,8 +101,11 @@ public class startWindowController implements Initializable {
                 if (passTryCount > 5) {
                     /*opens wrong accounts*/
                     System.out.println("opens wrong accounts");
+                    openMainWindow();
+                    Application.decryptFile(Integer.parseInt(accessPassInput));
                 } else if (accessPass.equals(accessPassInput)) {
                     openMainWindow();
+                    Application.decryptFile(Integer.parseInt(accessPassInput));
                 } else {
                     inputErrorDisplay.setVisible(true); // displaying input is wrong
                     passTryCount++; // incrementing try count

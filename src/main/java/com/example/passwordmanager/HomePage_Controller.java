@@ -2,13 +2,20 @@ package com.example.passwordmanager;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class HomePage_Controller implements Initializable {
@@ -60,37 +67,37 @@ public class HomePage_Controller implements Initializable {
 
     @FXML
     void IdenticalAccountMailFilter(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.reUsedMails);
     }
 
     @FXML
     void IdenticalPasswordFilter(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.reUsedPassWords);
     }
 
     @FXML
     void NewAccountFilterButton(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.newAccounts);
     }
 
     @FXML
     void NormalAccountFilterButton(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.NormalPassWords);
     }
 
     @FXML
     void StrongAccountFilterButton(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.StrongPassWords);
     }
 
     @FXML
     void WeakAccountFilterButton(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.WeakPassWords);
     }
 
     @FXML
     void favoriteAccountsList(ActionEvent event) {
-
+        openWindow("AccountsPage", accessData.FavoriteAccounts);
     }
 
     @Override
@@ -122,6 +129,29 @@ public class HomePage_Controller implements Initializable {
             OverallPasswordStrengthBar.setStyle("-fx-accent: #f9c74f");
         } else {
             OverallPasswordStrengthBar.setStyle("-fx-accent: #90be6d");
+        }
+    }
+
+    void openWindow(String pageName, List<Integer> AccountIds) {
+        VBox parent = (VBox) HomePageWindow.getParent();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(pageName + ".fxml"));
+        Object pane = null;
+        try {
+            switch (pageName) {
+                case "AccountsPage":
+                    Main_Application.accountIdsList = AccountIds;
+                    pane = (HBox) fxmlLoader.load();
+                    break;
+                default:
+                    pane = (ScrollPane) fxmlLoader.load();
+                    break;
+            }
+
+            VBox.setVgrow((Node) pane, Priority.ALWAYS);
+            parent.getChildren().remove(1);
+            parent.getChildren().add((Node) pane);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
