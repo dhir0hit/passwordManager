@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="596.0" styleClass="secondary_color" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.newAccount_Controller">
+   <children>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="443.0" HBox.hgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="274.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Account Number" HBox.hgrow="NEVER" />
+                  <Text fx:id="newAccountNumber" layoutX="10.0" layoutY="23.0" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="0000000000" wrappingWidth="183.6875" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <GridPane maxHeight="800.0" maxWidth="700.0" styleClass="primary_color" VBox.vgrow="ALWAYS">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="135.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="327.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="79.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label contentDisplay="RIGHT" prefHeight="25.0" prefWidth="162.0" text="User Name" textFill="WHITE" GridPane.rowIndex="1" />
+                  <TextField fx:id="newAccountName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label contentDisplay="RIGHT" layoutX="30.0" layoutY="62.0" prefHeight="25.0" prefWidth="162.0" text="Email" textFill="WHITE" GridPane.rowIndex="2" />
+                  <TextField fx:id="newAccountEmail" layoutX="165.0" layoutY="62.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label contentDisplay="RIGHT" layoutX="30.0" layoutY="238.0" prefHeight="25.0" prefWidth="162.0" text="Website" textFill="WHITE" GridPane.rowIndex="4" />
+                  <TextField fx:id="newAccountWebsite" layoutX="165.0" layoutY="238.0" text="https://" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label contentDisplay="RIGHT" layoutX="30.0" layoutY="267.0" prefHeight="25.0" prefWidth="162.0" text="Additional Info" textFill="WHITE" GridPane.rowIndex="5" />
+                  <TextArea fx:id="newAccountAdditionalInfo" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets top="13.0" />
+                     </GridPane.margin>
+                  </TextArea>
+                  <Label contentDisplay="RIGHT" layoutX="30.0" layoutY="89.0" prefHeight="25.0" prefWidth="162.0" text="Platform" textFill="WHITE" />
+                  <TextField fx:id="newAccountPlatform" layoutX="165.0" layoutY="89.0" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label contentDisplay="RIGHT" maxWidth="260.0" prefHeight="25.0" prefWidth="175.0" text="Password" textFill="WHITE" HBox.hgrow="ALWAYS" />
+                              <StackPane prefHeight="54.0" prefWidth="368.0" HBox.hgrow="SOMETIMES">
+                                 <children>
+                                    <TextField fx:id="newAccountPasswordVisible" />
+                                    <PasswordField fx:id="newAccountPassword" />
+                                    <Group StackPane.alignment="CENTER_RIGHT">
+                                       <children>
+                                          <SVGPath fx:id="visibleSvg" content="M 12 6 c 3.79 0 7.17 2.13 8.82 5.5 C 19.17 14.87 15.79 17 12 17 s -7.17 -2.13 -8.82 -5.5 C 4.83 8.13 8.21 6 12 6 m 0 -2 C 7 4 2.73 7.11 1 11.5 C 2.73 15.89 7 19 12 19 s 9.27 -3.11 11 -7.5 C 21.27 7.11 17 4 12 4 Z m 0 5 c 1.38 0 2.5 1.12 2.5 2.5 S 13.38 14 12 14 s -2.5 -1.12 -2.5 -2.5 S 10.62 9 12 9 m 0 -2 c -2.48 0 -4.5 2.02 -4.5 4.5 S 9.52 16 12 16 s 4.5 -2.02 4.5 -4.5 S 14.48 7 12 7 Z" />
+                                          <SVGPath fx:id="visibleOffSvg" content="M 12 6 c 3.79 0 7.17 2.13 8.82 5.5 c -0.59 1.22 -1.42 2.27 -2.41 3.12 l 1.41 1.41 c 1.39 -1.23 2.49 -2.77 3.18 -4.53 C 21.27 7.11 17 4 12 4 c -1.27 0 -2.49 0.2 -3.64 0.57 l 1.65 1.65 C 10.66 6.09 11.32 6 12 6 Z m -1.07 1.14 L 13 9.21 c 0.57 0.25 1.03 0.71 1.28 1.28 l 2.07 2.07 c 0.08 -0.34 0.14 -0.7 0.14 -1.07 C 16.5 9.01 14.48 7 12 7 c -0.37 0 -0.72 0.05 -1.07 0.14 Z M 2.01 3.87 l 2.68 2.68 C 3.06 7.83 1.77 9.53 1 11.5 C 2.73 15.89 7 19 12 19 c 1.52 0 2.98 -0.29 4.32 -0.82 l 3.42 3.42 l 1.41 -1.41 L 3.42 2.45 L 2.01 3.87 Z m 7.5 7.5 l 2.61 2.61 c -0.04 0.01 -0.08 0.02 -0.12 0.02 c -1.38 0 -2.5 -1.12 -2.5 -2.5 c 0 -0.05 0.01 -0.08 0.01 -0.13 Z m -3.4 -3.4 l 1.75 1.75 c -0.23 0.55 -0.36 1.15 -0.36 1.78 c 0 2.48 2.02 4.5 4.5 4.5 c 0.63 0 1.23 -0.13 1.77 -0.36 l 0.98 0.98 c -0.88 0.24 -1.8 0.38 -2.75 0.38 c -3.79 0 -7.17 -2.13 -8.82 -5.5 c 0.7 -1.43 1.72 -2.61 2.93 -3.53 Z" visible="false" />
+                                          <CheckBox fx:id="passwordDisplayCheckBox" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" onAction="#passwordDisplay" opacity="0.0" prefHeight="22.0" prefWidth="23.0">
+                                             <padding>
+                                                <Insets right="3.0" />
+                                             </padding>
+                                          </CheckBox>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets right="7.0" />
+                                       </StackPane.margin>
+                                    </Group>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <ProgressBar maxWidth="1.7976931348623157E308" prefHeight="3.0" prefWidth="516.0" progress="0.28" styleClass="password_strength" stylesheets="@css/app_styles.css" translateY="-6.0" StackPane.alignment="BOTTOM_CENTER" />
+                     </children>
+                  </StackPane>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" />
+               </padding>
+            </GridPane>
+            <HBox alignment="CENTER_RIGHT" prefHeight="54.0" prefWidth="556.0" spacing="10.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#SaveAccountInfo" text="Save" />
+                  <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#CancelAccountCreation" text="Cancel" />
+               </children>
+               <padding>
+                  <Insets right="40.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <stylesheets>
+      <URL value="@css/app_styles.css" />
+      <URL value="@css/newAccount.css" />
+   </stylesheets>
+</HBox>

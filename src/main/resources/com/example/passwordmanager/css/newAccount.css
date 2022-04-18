@@ -1,0 +1,11 @@
+* {
+    -fx-font-size: 13px;
+}
+
+.text-field {
+    /*-fx-font-size: 13px;*/
+}
+
+.button {
+    -fx-padding: 6px 15px;
+}

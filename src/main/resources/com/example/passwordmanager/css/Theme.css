@@ -1,0 +1,15 @@
+.primary_color {
+-fx-background-color:  #303a32; -fx-fill:  #303a32;
+}
+
+.secondary_color {
+-fx-background-color:  #202020; -fx-fill:  #202020;
+}
+
+.highlight_color {
+-fx-background-color:  linear-gradient(to top right, #0081b5, #dce36e); -fx-fill:  linear-gradient(to top right, #0081b5, #dce36e);
+}
+
+.text-color {
+-fx-text-fill: #D6D6D6; -fx-fill: #adadad;
+}
