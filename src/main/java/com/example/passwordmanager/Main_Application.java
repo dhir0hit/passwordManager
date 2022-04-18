@@ -124,8 +124,8 @@ public class Main_Application implements Initializable {
     }
 
     @FXML
-    void passwordManagerAccessOptions(ActionEvent event) {
-
+    void passwordManagerOptions(ActionEvent event) {
+        openWindow("Settings");
     }
 
     @FXML
@@ -183,6 +183,11 @@ public class Main_Application implements Initializable {
                 case "newAccount":
                     pane = (HBox) fxmlLoader.load();
                     break;
+
+                case "Settings":
+                    pane = (ScrollPane) fxmlLoader.load();
+                    break;
+
                 default:
                     pane = (ScrollPane) fxmlLoader.load();
                     break;

@@ -26,6 +26,7 @@ public class accessData {
     protected static List<Integer> NormalPassWords = new ArrayList<>();
     protected static List<Integer> StrongPassWords = new ArrayList<>();
 
+    protected static List<Integer> accountNumbers = new ArrayList<>();
     protected static List<Integer> accountIds = new ArrayList<>();
     protected static List<String> accountNames = new ArrayList<>();
     protected static List<String> accountPasswords = new ArrayList<>();
@@ -149,6 +150,7 @@ public class accessData {
 
         AccountCount = 0;
         accountIds = new ArrayList<>();
+        accountNumbers = new ArrayList<>();
         accountNames = new ArrayList<>();
         accountPasswords = new ArrayList<>();
         accountMails = new ArrayList<>();
@@ -168,11 +170,11 @@ public class accessData {
         try {
             Scanner scanner = new Scanner(new File(dataFileName));
             while (scanner.hasNextLine()) {
-                AccountCount++;
 
                 accounts = (scanner.nextLine().split(","));
                 LastAccountId = Integer.parseInt(accounts[0].strip());
 
+                accountNumbers.add(AccountCount++);
                 accountIds.add(Integer.valueOf(accounts[0].strip()));
                 accountNames.add(accounts[1].strip());
                 accountPasswords.add(accounts[2].strip());
@@ -220,16 +222,6 @@ public class accessData {
                 }
 
             }
-//            System.out.println(accountIds);
-//            System.out.println(accountNames);
-//            System.out.println(accountPasswords);
-//            System.out.println(accountMails);
-//            System.out.println(accountPlatforms);
-//            System.out.println(accountWebsites);
-//            System.out.println(additionalInfos);
-//            System.out.println(accountCreationDate);
-//            System.out.println(accountModifiedDate);
-//            System.out.println(isAccountsFavorite);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -237,7 +229,63 @@ public class accessData {
         reusedInfo();
     }
 
-    public static void ChangeFavoriteAccount(Boolean isAccountFavorite, int AccountId) {
+    protected static void deleteAccount(ArrayList<Integer> selectedAccounts){
+        try {
+            new FileWriter(dataFileName, false).close();
+            FileWriter dataFile = new FileWriter(dataFileName);
+            System.out.println(selectedAccounts);
+            for (int account=0; account<AccountCount; account++) {
+                if (!selectedAccounts.contains(accountIds.get(account))) {
+//                    System.out.println(account);
+                    dataFile.write(String.format("%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s\n",
+                            accountIds.get(account),
+                            accountNames.get(account),
+                            accountPasswords.get(account),
+                            accountMails.get(account),
+                            accountPlatforms.get(account),
+                            accountWebsites.get(account),
+                            additionalInfos.get(account),
+                            accountCreationDate.get(account),
+                            accountModifiedDate.get(account),
+                            isAccountsFavorite.get(account),
+                            accountIcons.get(account))
+                    );
+                } else {
+                    System.out.println("deleted account");
+                    System.out.println(account);
+                }
+            }
+            dataFile.close();
+            getAccounts();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void CreateNewAccount(String userName, String password, String mail, String platform, String website, String additionalInfo) {
+        try {
+            FileWriter datafile = new FileWriter(dataFileName, true);
+            datafile.write(String.format("%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s\n",
+                    ++LastAccountId,
+                    userName,
+                    password,
+                    mail,
+                    platform,
+                    website,
+                    additionalInfo,
+                    LocalDate.now(),
+                    LocalDate.now(),
+                    false,
+                    accountIcons.get(0)
+                    ));
+            datafile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        getAccounts();
+    }
+
+    public static void ChangeAccountDetails(Boolean isAccountFavorite, int AccountId) {
         try {
             new FileWriter(dataFileName, false).close();
             FileWriter dataFile = new FileWriter(dataFileName);
@@ -334,8 +382,6 @@ public class accessData {
 
         // add these values above
 
-
-
         HashSet unique=new HashSet();
         for (int i=0; i<AccountCount; i++) {
             if(!unique.add(accountPasswords.get(i))){
@@ -354,6 +400,30 @@ public class accessData {
                     && LocalDate.now().getYear() == accountCreationDate.get(i).getYear()) {
                 newAccounts.add(accountIds.get(i));
             }
+        }
+    }
+
+    public static void ChangeTheme(String primaryColor, String secondaryColor, String highlightColor, String textColor, String labelColor) {
+        try {
+            FileWriter AppTheme = new FileWriter("src/main/resources/com/example/passwordmanager/css/Theme.css", false);
+            AppTheme.write(".primary_color {\n" +
+                    "-fx-background-color:  " + primaryColor + "; -fx-fill:  " + primaryColor + ";\n" +
+                    "}\n" +
+                    "\n" +
+                    ".secondary_color {\n" +
+                    "-fx-background-color:  " + secondaryColor + "; -fx-fill:  " + secondaryColor + ";\n" +
+                    "}\n" +
+                    "\n" +
+                    ".highlight_color {\n" +
+                    "-fx-background-color:  " + highlightColor + "; -fx-fill:  " + highlightColor + ";\n" +
+                    "}\n" +
+                    "\n" +
+                    ".text-color {\n" +
+                    "-fx-text-fill: " + textColor + "; -fx-fill: " + labelColor + ";\n" +
+                    "}\n");
+            AppTheme.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

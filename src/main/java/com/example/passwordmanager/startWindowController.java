@@ -52,7 +52,8 @@ public class startWindowController implements Initializable {
 
     protected short passTryCount;
 
-    private String accessPass;
+    protected static String accessPass;
+    protected static String inputAccessPass;
 
     @FXML
     void SubmitPass(ActionEvent event) {
@@ -67,7 +68,10 @@ public class startWindowController implements Initializable {
     @FXML
     void passwordInputCheck(KeyEvent event) {
         inputErrorDisplay.setVisible(false);
-        if (event.getCode().equals(KeyCode.ENTER)) {
+        if (passwordInput.getText().equals(accessPass)) {
+            submit(passwordInput.getText());
+        }
+        else if (event.getCode().equals(KeyCode.ENTER)) {
             submit(passwordInput.getText());
         }
     }
@@ -91,6 +95,8 @@ public class startWindowController implements Initializable {
      * @param accessPassInput access password got from user
      * */
     private void submit(String accessPassInput) {
+        inputAccessPass = accessPassInput;
+
         if (accessPassInput.isEmpty()) {
             System.out.println("empty");
         } else {

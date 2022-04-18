@@ -39,11 +39,6 @@
     -fx-background-color: rgba(51, 53, 51, 0.9);
 }
 
-.text-color {
-    -fx-text-fill: #D6D6D6;
-    -fx-fill: #adadad;
-}
-
 .active .label {
     -fx-text-fill: #333533;
 }
@@ -59,24 +54,12 @@
 }
 
 .topnav_input {
-    -fx-background-color: rgba(51, 53, 51, 0.9);
+    /*-fx-background-color: rgba(51, 53, 51, 0.9);*/
 
 }
 
 .password_show {
     -fx-background-color: transparent;
-}
-
-.highlight_color {
-    -fx-background-color:  #FFD100;
-}
-
-.primary_color {
-    -fx-background-color:  #333533;
-}
-
-.secondary_color {
-    -fx-background-color:  #202020;
 }
 
 .grid-pane {

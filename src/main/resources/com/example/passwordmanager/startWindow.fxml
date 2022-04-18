@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -19,17 +20,17 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<StackPane maxHeight="500.0" maxWidth="750.0" prefHeight="500.0" prefWidth="750.0" stylesheets="@css/startWindow.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.startWindowController">
+<StackPane maxHeight="500.0" maxWidth="750.0" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.startWindowController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" blendMode="DARKEN" fill="#1f1f1f" height="486.0" layoutX="453.0" layoutY="-59.0" rotate="-49.2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="639.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" blendMode="DARKEN" height="486.0" layoutX="453.0" layoutY="-59.0" rotate="-49.2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="secondary_color" width="639.0" />
             <ImageView fitHeight="384.0" fitWidth="451.0" layoutX="238.0" layoutY="325.0" pickOnBounds="true" rotate="40.8">
                <image>
                   <Image url="@media/Grey-Background.png" />
                </image>
             </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd100" height="486.0" layoutX="-251.0" layoutY="-131.0" rotate="130.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="895.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="486.0" layoutX="-251.0" layoutY="-131.0" rotate="130.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="highlight_color" width="895.0" />
          </children>
       </Pane>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="750.0">
@@ -145,4 +146,8 @@
          </children>
       </HBox>
    </children>
+   <stylesheets>
+      <URL value="@css/startWindow.css" />
+      <URL value="@css/Theme.css" />
+   </stylesheets>
 </StackPane>

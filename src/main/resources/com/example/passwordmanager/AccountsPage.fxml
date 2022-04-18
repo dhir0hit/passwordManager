@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -22,7 +23,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<HBox fx:id="MenuPageWIndow" prefHeight="515.0" prefWidth="596.0" stylesheets="@css/app_styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.AccountsPage_Controller">
+<HBox fx:id="MenuPageWIndow" prefHeight="515.0" prefWidth="596.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.AccountsPage_Controller">
    <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1200.0" maxWidth="500.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="220.0" styleClass="primary_color" stylesheets="@css/app_styles.css" HBox.hgrow="ALWAYS">
          <content>
@@ -85,7 +86,7 @@
                   <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                </padding>
             </HBox>
-            <GridPane alignment="CENTER" hgap="15.0" maxWidth="550.0" prefWidth="200.0" styleClass="grid-pane">
+            <GridPane alignment="CENTER" hgap="15.0" maxWidth="550.0" prefWidth="200.0" styleClass="primary_color">
                <columnConstraints>
                   <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="147.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="170.0" />
@@ -249,4 +250,8 @@
          </padding>
       </VBox>
    </children>
+   <stylesheets>
+      <URL value="@css/app_styles.css" />
+      <URL value="@css/Theme.css" />
+   </stylesheets>
 </HBox>

@@ -113,7 +113,10 @@ public class AccountsPage_Controller implements Initializable {
 
     @FXML
     void deleteCurrentAccount(ActionEvent event) {
-
+        ArrayList<Integer> selectedAccountList = new ArrayList<>();
+        selectedAccountList.add(Integer.parseInt(accountIdOutput.getText()));
+        accessData.deleteAccount(selectedAccountList);
+//        System.out.println(Integer.parseInt(accountIdOutput.getText()));
     }
 
     @FXML
@@ -121,7 +124,7 @@ public class AccountsPage_Controller implements Initializable {
         accessData.FavoriteAccounts = new ArrayList<>();
         isFavorite = !isFavorite;
         setSelectedAccountFavorite();
-        accessData.ChangeFavoriteAccount(isFavorite, Integer.parseInt(accountIdOutput.getText()));
+        accessData.ChangeAccountDetails(isFavorite, Integer.parseInt(accountIdOutput.getText()));
 
     }
 
@@ -138,7 +141,7 @@ public class AccountsPage_Controller implements Initializable {
     }
 
     public void loadAccountList() {
-        accountIdList = Main_Application.accountIdsList;
+        accountIdList = accessData.accountNumbers;
         HBox tempAccountInfo;
         int accountNo = 0;
 
@@ -154,7 +157,7 @@ public class AccountsPage_Controller implements Initializable {
             // label 1 style for account name
             Label label1 = new Label();
 //            label1.setText("Account Name (Account Name)");
-            label1.setText(accessData.accountPlatforms.get(account - 1) + " (" + accessData.accountNames.get(account - 1));
+            label1.setText(accessData.accountPlatforms.get(account) + " (" + accessData.accountNames.get(account));
             label1.setStyle("-fx-font-size: 18px");
             label1.getStyleClass().add("text-color");
             label1.prefWidth(144);
@@ -167,7 +170,7 @@ public class AccountsPage_Controller implements Initializable {
             // label 2 style for email
             Label label2 = new Label();
 //            label2.setText("email");
-            label2.setText(accessData.accountMails.get(account - 1));
+            label2.setText(accessData.accountMails.get(account));
             label2.setStyle("-fx-font-size: 12px");
             label2.getStyleClass().add("text-color");
             label2.prefWidth(144);
@@ -186,11 +189,11 @@ public class AccountsPage_Controller implements Initializable {
 
             // styling image view
             try {
-                imageView.setImage(new Image(getClass().getResource(accessData.accountIcons.get(account - 1)).toURI().toString(), 60, 60, false, true));
+                imageView.setImage(new Image(getClass().getResource(accessData.accountIcons.get(account)).toURI().toString(), 60, 60, false, true));
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
-            imageView.setId("loginList_acc" + accountNo + "Image");
+            imageView.setId("loginList_acc" + account + "Image");
 
             // style temp account info hbox
             tempAccountInfo.getChildren().addAll(imageView, vBox);
@@ -199,7 +202,7 @@ public class AccountsPage_Controller implements Initializable {
             tempAccountInfo.prefWidth(206);
             tempAccountInfo.prefHeight(60);
             tempAccountInfo.fillHeightProperty().set(true);
-            tempAccountInfo.setId("account" + accountNo + "OutputValue");
+            tempAccountInfo.setId("account" + account + "OutputValue");
             tempAccountInfo.getStyleClass().add("password_list");
 
 
@@ -207,29 +210,29 @@ public class AccountsPage_Controller implements Initializable {
             tempAccountInfo.setOnMouseClicked(mouseEvent -> {
                 displaySelectedAccountInfo.setVisible(true);
                 double passwordStrengthPercentage;
-                int accountInfoId = accountIdList.get(Integer.parseInt(
-                        finalTempAccountInfo.getId()
-                                .replace("account","")
-                                .replace("OutputValue","")
-                ) - 1) -1;
+//                int accountInfoId = accountIdList.get(Integer.parseInt(
+//                        finalTempAccountInfo.getId()
+//                                .replace("account","")
+//                                .replace("OutputValue","")
+//                ) - 1) - 1;
 
                 try {
-                    accountLogoOutput.setImage(new Image(getClass().getResource(accessData.accountIcons.get(accountInfoId)).toURI().toString()));
+                    accountLogoOutput.setImage(new Image(getClass().getResource(accessData.accountIcons.get(account)).toURI().toString()));
                 } catch (URISyntaxException e) {
                     e.printStackTrace();
                 }
-                AccountNameOutput.setText(accessData.accountPlatforms.get(accountInfoId));
-                accountIdOutput.setText(String.valueOf(accountInfoId));
-                userNameOutput.setText(accessData.accountNames.get(accountInfoId));
-                accountMailOutput.setText(accessData.accountMails.get(accountInfoId));
-                accountPassVisibleOutput.setText(accessData.accountPasswords.get(accountInfoId));
-                accountPassHiddenOutput.setText("●".repeat(accessData.accountPasswords.get(accountInfoId).length()));
-                accountWebsiteOutput.setText(accessData.accountWebsites.get(accountInfoId));
-                accountAdditionalInfoOutput.setText(accessData.additionalInfos.get(accountInfoId));
-                accountCreationDateOutput.setText(String.valueOf(accessData.accountCreationDate.get(accountInfoId)));
-                accountModifiedDateOutput.setText(String.valueOf(accessData.accountModifiedDate.get(accountInfoId)));
+                AccountNameOutput.setText(accessData.accountPlatforms.get(account));
+                accountIdOutput.setText(String.valueOf(accessData.accountIds.get(account)));
+                userNameOutput.setText(accessData.accountNames.get(account));
+                accountMailOutput.setText(accessData.accountMails.get(account));
+                accountPassVisibleOutput.setText(accessData.accountPasswords.get(account));
+                accountPassHiddenOutput.setText("●".repeat(accessData.accountPasswords.get(account).length()));
+                accountWebsiteOutput.setText(accessData.accountWebsites.get(account));
+                accountAdditionalInfoOutput.setText(accessData.additionalInfos.get(account));
+                accountCreationDateOutput.setText(String.valueOf(accessData.accountCreationDate.get(account)));
+                accountModifiedDateOutput.setText(String.valueOf(accessData.accountModifiedDate.get(account)));
 
-                passwordStrengthPercentage = accessData.PasswordStrengthPercent(accessData.accountPasswords.get(accountInfoId));
+                passwordStrengthPercentage = accessData.PasswordStrengthPercent(accessData.accountPasswords.get(account));
                 passwordStrength.setProgress(passwordStrengthPercentage);
                 if (passwordStrengthPercentage <= 0.18) {
                     passwordStrength.setStyle("-fx-accent:  #f8301e");
@@ -245,7 +248,7 @@ public class AccountsPage_Controller implements Initializable {
                 changePasswordOutput();
 
 
-                AccountsPage_Controller.isFavorite = accessData.isAccountsFavorite.get(accountInfoId);
+                AccountsPage_Controller.isFavorite = accessData.isAccountsFavorite.get(account);
                 setSelectedAccountFavorite();
             });
 

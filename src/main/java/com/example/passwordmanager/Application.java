@@ -41,8 +41,7 @@ public class Application extends javafx.application.Application {
         newStage.setScene(scene);
         newStage.show();
         primaryStage = newStage;
-
-
+        newStage.setOnCloseRequest(windowEvent -> encryptFile(Integer.parseInt(startWindowController.inputAccessPass)));
     }
 
     public static void closeWindow(String stageName) {
@@ -54,24 +53,30 @@ public class Application extends javafx.application.Application {
     }
 
     protected static void encryptFile(int Key) {
-        try{
-            int ctr;
-            Key = Key + 1000;
+        if (startWindowController.inputAccessPass.equals(startWindowController.accessPass)) {
+            try {
+                int ctr;
+                Key = Key + 1000;
 
-            FileInputStream inputStream = new FileInputStream("accountDataFile.csv");
-            FileOutputStream outputStream = new FileOutputStream("accountsInfo.csv");
+                FileInputStream inputStream = new FileInputStream("accountDataFile.csv");
+                FileOutputStream outputStream = new FileOutputStream("accountsInfo.err");
 
-            while ((ctr = inputStream.read()) != -1) {
-                ctr -= Key;
-                System.out.print((char)ctr);
-                outputStream.write(ctr);
+                while ((ctr = inputStream.read()) != -1) {
+                    ctr -= Key;
+//                    System.out.print((char) ctr);
+                    outputStream.write(ctr);
 //                Thread.sleep(100);
+                }
+                outputStream.close();
+            } catch (Exception error) {
+                error.printStackTrace();
             }
-            outputStream.close();
-        } catch (Exception error) {
-            error.printStackTrace();
-        }
 
+            System.out.println("encrypt");
+        }
+        else {
+
+        }
 //        Scanner scanner = null;
 //        try {
 //            scanner = new Scanner(new File(OutputPath));
@@ -91,13 +96,13 @@ public class Application extends javafx.application.Application {
 
 
 //            FileInputStream inputStream = new FileInputStream("src/text.txt");
-            FileInputStream inputStream = new FileInputStream("accountsInfo.csv");
+            FileInputStream inputStream = new FileInputStream("accountsInfo.err");
 //            FileOutputStream outputStream = new FileOutputStream("src/output.txt");
             FileOutputStream outputStream = new FileOutputStream("accountDataFile.csv");
 
             while ((ctr = inputStream.read()) != -1) {
                 ctr += Key;
-                System.out.print((char)ctr);
+//                System.out.print((char)ctr);
                 outputStream.write(ctr);
 //                Thread.sleep(100);
             }
@@ -117,4 +122,6 @@ public class Application extends javafx.application.Application {
 //        }
 
     }
+
+
 }
