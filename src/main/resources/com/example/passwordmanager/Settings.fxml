@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
@@ -30,22 +31,22 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Name: " />
                         <StackPane alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="105.0" styleClass="primary_color">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Name">
+                              <Text fx:id="nameOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Name">
                                  <StackPane.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </StackPane.margin>
                               </Text>
-                              <TextField prefHeight="30.0" prefWidth="102.0" promptText="Name" styleClass="text-field" visible="false" />
+                              <TextField fx:id="nameInput" prefHeight="30.0" prefWidth="102.0" promptText="Name" styleClass="text-field" visible="false" />
                            </children>
                         </StackPane>
                         <StackPane prefHeight="26.0" prefWidth="0.0">
                            <children>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Save">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SaveName" text="Save" visible="false">
                                  <graphic>
                                     <SVGPath content="M 9 16.2 L 4.8 12 l -1.4 1.4 L 9 19 L 21 7 l -1.4 -1.4 L 9 16.2 Z" fill="WHITE" styleClass="icon_button" />
                                  </graphic>
                               </Button>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Edit">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditName" text="Edit">
                                  <graphic>
                                     <SVGPath content="M 14.06 9.02 l 0.92 0.92 L 5.92 19 H 5 v -0.92 l 9.06 -9.06 M 17.66 3 c -0.25 0 -0.51 0.1 -0.7 0.29 l -1.83 1.83 l 3.75 3.75 l 1.83 -1.83 c 0.39 -0.39 0.39 -1.02 0 -1.41 l -2.34 -2.34 c -0.2 -0.2 -0.45 -0.29 -0.71 -0.29 Z m -3.6 3.19 L 3 17.25 V 21 h 3.75 L 17.81 9.94 l -3.75 -3.75 Z" styleClass="icon_button" />
                                  </graphic>
@@ -68,12 +69,12 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Mail: " />
                         <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="200.0" styleClass="primary_color">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="mail@mail.com">
+                              <Text fx:id="mailOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="mail@mail.com">
                                  <StackPane.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </StackPane.margin>
                               </Text>
-                              <TextField prefHeight="30.0" prefWidth="102.0" promptText="xyz@mail.com" styleClass="text-field" visible="false" />
+                              <TextField fx:id="mailInput" prefHeight="30.0" prefWidth="102.0" promptText="xyz@mail.com" styleClass="text-field" visible="false" />
                            </children>
                            <HBox.margin>
                               <Insets left="8.0" />
@@ -81,12 +82,12 @@
                         </StackPane>
                         <StackPane prefHeight="26.0" prefWidth="0.0">
                            <children>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Save">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SaveMail" text="Save" visible="false">
                                  <graphic>
                                     <SVGPath content="M 9 16.2 L 4.8 12 l -1.4 1.4 L 9 19 L 21 7 l -1.4 -1.4 L 9 16.2 Z" fill="WHITE" styleClass="icon_button" />
                                  </graphic>
                               </Button>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Edit">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditMail" text="Edit">
                                  <graphic>
                                     <SVGPath content="M 14.06 9.02 l 0.92 0.92 L 5.92 19 H 5 v -0.92 l 9.06 -9.06 M 17.66 3 c -0.25 0 -0.51 0.1 -0.7 0.29 l -1.83 1.83 l 3.75 3.75 l 1.83 -1.83 c 0.39 -0.39 0.39 -1.02 0 -1.41 l -2.34 -2.34 c -0.2 -0.2 -0.45 -0.29 -0.71 -0.29 Z m -3.6 3.19 L 3 17.25 V 21 h 3.75 L 17.81 9.94 l -3.75 -3.75 Z" styleClass="icon_button" />
                                  </graphic>
@@ -117,22 +118,22 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="App pass: " />
                         <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="105.0" styleClass="primary_color">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Pass">
+                              <Text fx:id="acessPassOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Pass">
                                  <StackPane.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </StackPane.margin>
                               </Text>
-                              <TextField prefHeight="30.0" prefWidth="102.0" styleClass="text-field" visible="false" />
+                              <TextField fx:id="acessPassInput" prefHeight="30.0" prefWidth="102.0" styleClass="text-field" visible="false" />
                            </children>
                         </StackPane>
                         <StackPane prefHeight="26.0" prefWidth="0.0">
                            <children>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Save">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SavePass" text="Save" visible="false">
                                  <graphic>
                                     <SVGPath content="M 9 16.2 L 4.8 12 l -1.4 1.4 L 9 19 L 21 7 l -1.4 -1.4 L 9 16.2 Z" fill="WHITE" styleClass="icon_button" />
                                  </graphic>
                               </Button>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Edit">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditPass" text="Edit">
                                  <graphic>
                                     <SVGPath content="M 14.06 9.02 l 0.92 0.92 L 5.92 19 H 5 v -0.92 l 9.06 -9.06 M 17.66 3 c -0.25 0 -0.51 0.1 -0.7 0.29 l -1.83 1.83 l 3.75 3.75 l 1.83 -1.83 c 0.39 -0.39 0.39 -1.02 0 -1.41 l -2.34 -2.34 c -0.2 -0.2 -0.45 -0.29 -0.71 -0.29 Z m -3.6 3.19 L 3 17.25 V 21 h 3.75 L 17.81 9.94 l -3.75 -3.75 Z" styleClass="icon_button" />
                                  </graphic>
@@ -155,12 +156,12 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Hint: " />
                         <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="200.0" styleClass="primary_color">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Hint">
+                              <Text fx:id="acessHintOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Hint">
                                  <StackPane.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </StackPane.margin>
                               </Text>
-                              <TextField prefHeight="26.0" prefWidth="177.0" styleClass="text-field" visible="false" />
+                              <TextField fx:id="acessHintInput" prefHeight="26.0" prefWidth="177.0" styleClass="text-field" visible="false" />
                            </children>
                            <HBox.margin>
                               <Insets left="25.0" />
@@ -168,12 +169,12 @@
                         </StackPane>
                         <StackPane prefHeight="26.0" prefWidth="0.0">
                            <children>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Save">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SaveHint" text="Save" visible="false">
                                  <graphic>
                                     <SVGPath content="M 9 16.2 L 4.8 12 l -1.4 1.4 L 9 19 L 21 7 l -1.4 -1.4 L 9 16.2 Z" fill="WHITE" styleClass="icon_button" />
                                  </graphic>
                               </Button>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Edit">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditHint" text="Edit">
                                  <graphic>
                                     <SVGPath content="M 14.06 9.02 l 0.92 0.92 L 5.92 19 H 5 v -0.92 l 9.06 -9.06 M 17.66 3 c -0.25 0 -0.51 0.1 -0.7 0.29 l -1.83 1.83 l 3.75 3.75 l 1.83 -1.83 c 0.39 -0.39 0.39 -1.02 0 -1.41 l -2.34 -2.34 c -0.2 -0.2 -0.45 -0.29 -0.71 -0.29 Z m -3.6 3.19 L 3 17.25 V 21 h 3.75 L 17.81 9.94 l -3.75 -3.75 Z" styleClass="icon_button" />
                                  </graphic>
@@ -211,7 +212,7 @@
                         <VBox prefHeight="559.0" prefWidth="211.0" spacing="10.0">
                            <children>
                               <Label styleClass="text-color" text="Color Scheme" />
-                              <Button mnemonicParsing="false" onAction="#Theme1" text="Theme 1">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Theme1" text="Theme 1">
                                  <graphic>
                                     <HBox prefHeight="40.0" prefWidth="63.0">
                                        <children>
@@ -221,8 +222,11 @@
                                        </children>
                                     </HBox>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Click to preview" />
+                                 </tooltip>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#Theme2" text="Theme 2">
+                              <Button accessibleText="Theme 2" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Theme2" text="Theme 2">
                                  <graphic>
                                     <HBox prefHeight="40.0" prefWidth="63.0">
                                        <children>
@@ -232,8 +236,11 @@
                                        </children>
                                     </HBox>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Click to preview" />
+                                 </tooltip>
                               </Button>
-                              <Button layoutX="20.0" layoutY="105.0" mnemonicParsing="false" onAction="#Theme3" text="Theme 3">
+                              <Button contentDisplay="GRAPHIC_ONLY" layoutX="20.0" layoutY="105.0" mnemonicParsing="false" onAction="#Theme3" text="Theme 3">
                                  <graphic>
                                     <HBox prefHeight="40.0" prefWidth="63.0">
                                        <children>
@@ -243,8 +250,11 @@
                                        </children>
                                     </HBox>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Click to preview" />
+                                 </tooltip>
                               </Button>
-                              <Button layoutX="20.0" layoutY="163.0" mnemonicParsing="false" onAction="#Theme4" text="Theme 4">
+                              <Button contentDisplay="GRAPHIC_ONLY" layoutX="20.0" layoutY="163.0" mnemonicParsing="false" onAction="#Theme4" text="Theme 4">
                                  <graphic>
                                     <HBox prefHeight="40.0" prefWidth="63.0">
                                        <children>
@@ -254,8 +264,11 @@
                                        </children>
                                     </HBox>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Click to preview" />
+                                 </tooltip>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#Theme5" text="Theme 5">
+                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Theme5" text="Theme 5">
                                  <graphic>
                                     <HBox prefHeight="40.0" prefWidth="63.0">
                                        <children>
@@ -265,8 +278,11 @@
                                        </children>
                                     </HBox>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Click to preview" />
+                                 </tooltip>
                               </Button>
-                              <Button layoutX="20.0" layoutY="279.0" mnemonicParsing="false" onAction="#Theme6" text="Theme 6">
+                              <Button contentDisplay="GRAPHIC_ONLY" layoutX="20.0" layoutY="279.0" mnemonicParsing="false" onAction="#Theme6" text="Theme 6">
                                  <graphic>
                                     <HBox prefHeight="40.0" prefWidth="63.0">
                                        <children>
@@ -276,8 +292,11 @@
                                        </children>
                                     </HBox>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Click to preview" />
+                                 </tooltip>
                               </Button>
-                              <Button layoutX="20.0" layoutY="337.0" mnemonicParsing="false" onAction="#Theme7" text="Theme 7">
+                              <Button contentDisplay="GRAPHIC_ONLY" layoutX="20.0" layoutY="337.0" mnemonicParsing="false" onAction="#Theme7" text="Theme 7">
                                  <graphic>
                                     <HBox prefHeight="40.0" prefWidth="63.0">
                                        <children>
@@ -287,8 +306,11 @@
                                        </children>
                                     </HBox>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Click to preview" />
+                                 </tooltip>
                               </Button>
-                              <Button layoutX="20.0" layoutY="395.0" mnemonicParsing="false" onAction="#Theme8" text="Theme 8">
+                              <Button contentDisplay="GRAPHIC_ONLY" layoutX="20.0" layoutY="395.0" mnemonicParsing="false" onAction="#Theme8" text="Theme 8">
                                  <graphic>
                                     <HBox prefHeight="40.0" prefWidth="63.0">
                                        <children>
@@ -315,8 +337,11 @@
                                        </children>
                                     </HBox>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Click to preview" />
+                                 </tooltip>
                               </Button>
-                              <Button layoutX="20.0" layoutY="453.0" mnemonicParsing="false" onAction="#Theme9" text="Theme 9">
+                              <Button contentDisplay="GRAPHIC_ONLY" layoutX="20.0" layoutY="453.0" mnemonicParsing="false" onAction="#Theme9" text="Theme 9">
                                  <graphic>
                                     <HBox prefHeight="40.0" prefWidth="63.0">
                                        <children>
@@ -343,6 +368,9 @@
                                        </children>
                                     </HBox>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Click to preview" />
+                                 </tooltip>
                               </Button>
                            </children>
                            <padding>

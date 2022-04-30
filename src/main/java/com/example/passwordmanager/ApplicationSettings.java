@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -20,16 +20,31 @@ public class ApplicationSettings implements Initializable {
     private ScrollPane HomePageWindow;
 
     @FXML
-    private ToggleGroup Theme;
+    private TextField acessHintInput;
 
     @FXML
-    private ToggleGroup Theme1;
+    private Text acessHintOutput;
 
     @FXML
-    private ToggleGroup Theme11;
+    private TextField acessPassInput;
+
+    @FXML
+    private Text acessPassOutput;
 
     @FXML
     private Rectangle highLightColor_Show;
+
+    @FXML
+    private TextField mailInput;
+
+    @FXML
+    private Text mailOutput;
+
+    @FXML
+    private TextField nameInput;
+
+    @FXML
+    private Text nameOutput;
 
     @FXML
     private Rectangle primaryColor_Show;
@@ -37,12 +52,53 @@ public class ApplicationSettings implements Initializable {
     @FXML
     private Text secondaryColor_Show;
 
-//    ArrayList<String> AppTheme = new ArrayList<>();
+
+    //    ArrayList<String> AppTheme = new ArrayList<>();
     String[] AppTheme = new String[5];
     String primaryColor, secondaryColor, highlightColor;
 
     @FXML
     void CancelThemeChange(ActionEvent event) {
+
+    }
+
+    @FXML
+    void EditHint(ActionEvent event) {
+
+    }
+
+    @FXML
+    void EditMail(ActionEvent event) {
+
+    }
+
+    @FXML
+    void EditName(ActionEvent event) {
+
+    }
+
+    @FXML
+    void EditPass(ActionEvent event) {
+
+    }
+
+    @FXML
+    void SaveHint(ActionEvent event) {
+
+    }
+
+    @FXML
+    void SaveMail(ActionEvent event) {
+
+    }
+
+    @FXML
+    void SaveName(ActionEvent event) {
+
+    }
+
+    @FXML
+    void SavePass(ActionEvent event) {
 
     }
 
