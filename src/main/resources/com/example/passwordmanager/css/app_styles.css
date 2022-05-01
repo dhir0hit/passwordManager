@@ -122,7 +122,10 @@
     -fx-effect: null;
 }
 
-
+.transparent {
+    -fx-background-color: transparent;
+    -fx-fill: transparent;
+}
 
 
 

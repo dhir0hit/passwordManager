@@ -11,6 +11,7 @@ public class accessData {
 
     protected static int AccountCount = 0;
     protected static int LastAccountId = 0;
+    protected static String ACCESSPASS = "";
 
     static String accessFileName = "accessData.txt";
     static String dataFileName = "accountDataFile.csv";
@@ -73,6 +74,7 @@ public class accessData {
             e.printStackTrace();
         }
 
+        ACCESSPASS = accessPass;
         /*returning access pass*/
         return accessPass +"~"+accessHint;
     }
@@ -89,6 +91,7 @@ public class accessData {
     protected static boolean changeAccessPass(String newAccessPass, String newHint) {
         String fileData = "";
         File accessFile = new File(accessFileName);
+        int i = 0;
         boolean isPassChanged = false;
 
         /* Checking if hint is empty so replacing with no hint*/
@@ -96,27 +99,27 @@ public class accessData {
 
         try {
             Scanner scanFile = new Scanner(accessFile);
-
-            FileWriter writeAccessFile = new FileWriter(accessFile);
-            if (scanFile.hasNext()) {
-                while (scanFile.hasNextLine()) {
-                    fileData += scanFile.nextLine();
-                }
-
-                writeAccessFile.write(newAccessPass + "\n");
-                writeAccessFile.write(newHint + "\n");
-                writeAccessFile.write(fileData + "\n");
-                isPassChanged = true;
-            } else {
-                writeAccessFile.write(newAccessPass + "\n");
-                writeAccessFile.write(newHint + "\n");
-                isPassChanged = true;
+            scanFile.nextLine();
+            scanFile.nextLine();
+            while (scanFile.hasNextLine()) {
+                fileData += scanFile.nextLine() + "\n";
             }
+
+            FileWriter writeAccessFile = new FileWriter(accessFile, false);
+
+            writeAccessFile.write(newAccessPass + "\n");
+            writeAccessFile.write(newHint + "\n");
+            writeAccessFile.write(fileData.strip() + "\n");
+            isPassChanged = true;
             writeAccessFile.close();
+
+            ACCESSPASS = newAccessPass;
+
         } catch (IOException e) {
             e.printStackTrace();
             isPassChanged = false;
         }
+
         return isPassChanged;
     }
 
@@ -143,6 +146,59 @@ public class accessData {
             e.printStackTrace();
         }
         return accessUserName;
+    }
+
+    protected static void ChangeAccessInfo(String UserName, String UserMail) {
+        String fileData1 = "";
+        String fileData2 = "";
+        File accessFile = new File(accessFileName);
+        int count = 0;
+
+        try {
+            Scanner scanFile = new Scanner(accessFile);
+            while (scanFile.hasNextLine()) {
+                if (count < 2) {
+                    fileData1 += scanFile.nextLine() + "\n";
+                } else if (count == 2 && count == 3) {
+                    scanFile.nextLine();
+                    scanFile.nextLine();
+                } else {
+                    fileData2 += scanFile.nextLine() + "\n";
+                }
+                count++;
+            }
+
+            FileWriter writeAccessFile = new FileWriter(accessFile, false);
+            writeAccessFile.write(fileData1.strip() + "\n");
+            writeAccessFile.write(UserName + "\n");
+            writeAccessFile.write(UserMail + "\n");
+            writeAccessFile.write(fileData2.strip() + "\n");
+            writeAccessFile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected static String getAccessMail() {
+        String accessMail = "";
+        File accessFile = new File(accessFileName);
+
+        try {
+            /* if file exists get access password */
+            if (accessFile.exists()) {
+                Scanner scanner = new Scanner(accessFile); // Scanning file
+                /*checking if file has any line to read else access username remain empty*/
+                for (int i=0; i < 3; i++) {
+                    scanner.nextLine();
+                }
+                if (scanner.hasNextLine()) {
+                    accessMail = scanner.nextLine(); // getting mail
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return accessMail;
     }
 
     protected static void getAccounts() {

@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane fx:id="HomePageWindow" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" prefHeight="1000.0" prefWidth="596.0" styleClass="primary_color" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.ApplicationSettings">
+<ScrollPane fx:id="HomePageWindow" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" prefHeight="1000.0" prefWidth="596.0" styleClass="primary_color" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.ApplicationSettings">
    <content>
       <VBox prefHeight="653.0" prefWidth="594.0" styleClass="secondary_color">
          <children>
@@ -41,12 +41,12 @@
                         </StackPane>
                         <StackPane prefHeight="26.0" prefWidth="0.0">
                            <children>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SaveName" text="Save" visible="false">
+                              <Button fx:id="SaveNameButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SaveName" text="Save" visible="false">
                                  <graphic>
                                     <SVGPath content="M 9 16.2 L 4.8 12 l -1.4 1.4 L 9 19 L 21 7 l -1.4 -1.4 L 9 16.2 Z" fill="WHITE" styleClass="icon_button" />
                                  </graphic>
                               </Button>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditName" text="Edit">
+                              <Button fx:id="EditNameButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditName" text="Edit">
                                  <graphic>
                                     <SVGPath content="M 14.06 9.02 l 0.92 0.92 L 5.92 19 H 5 v -0.92 l 9.06 -9.06 M 17.66 3 c -0.25 0 -0.51 0.1 -0.7 0.29 l -1.83 1.83 l 3.75 3.75 l 1.83 -1.83 c 0.39 -0.39 0.39 -1.02 0 -1.41 l -2.34 -2.34 c -0.2 -0.2 -0.45 -0.29 -0.71 -0.29 Z m -3.6 3.19 L 3 17.25 V 21 h 3.75 L 17.81 9.94 l -3.75 -3.75 Z" styleClass="icon_button" />
                                  </graphic>
@@ -82,12 +82,12 @@
                         </StackPane>
                         <StackPane prefHeight="26.0" prefWidth="0.0">
                            <children>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SaveMail" text="Save" visible="false">
+                              <Button fx:id="SaveMailButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SaveMail" text="Save" visible="false">
                                  <graphic>
                                     <SVGPath content="M 9 16.2 L 4.8 12 l -1.4 1.4 L 9 19 L 21 7 l -1.4 -1.4 L 9 16.2 Z" fill="WHITE" styleClass="icon_button" />
                                  </graphic>
                               </Button>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditMail" text="Edit">
+                              <Button fx:id="EditMailButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditMail" text="Edit">
                                  <graphic>
                                     <SVGPath content="M 14.06 9.02 l 0.92 0.92 L 5.92 19 H 5 v -0.92 l 9.06 -9.06 M 17.66 3 c -0.25 0 -0.51 0.1 -0.7 0.29 l -1.83 1.83 l 3.75 3.75 l 1.83 -1.83 c 0.39 -0.39 0.39 -1.02 0 -1.41 l -2.34 -2.34 c -0.2 -0.2 -0.45 -0.29 -0.71 -0.29 Z m -3.6 3.19 L 3 17.25 V 21 h 3.75 L 17.81 9.94 l -3.75 -3.75 Z" styleClass="icon_button" />
                                  </graphic>
@@ -118,22 +118,22 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="App pass: " />
                         <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="105.0" styleClass="primary_color">
                            <children>
-                              <Text fx:id="acessPassOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Pass">
+                              <Text fx:id="accessPassOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Pass">
                                  <StackPane.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </StackPane.margin>
                               </Text>
-                              <TextField fx:id="acessPassInput" prefHeight="30.0" prefWidth="102.0" styleClass="text-field" visible="false" />
+                              <TextField fx:id="accessPassInput" prefHeight="30.0" prefWidth="102.0" styleClass="text-field" visible="false" />
                            </children>
                         </StackPane>
                         <StackPane prefHeight="26.0" prefWidth="0.0">
                            <children>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SavePass" text="Save" visible="false">
+                              <Button fx:id="SavePassButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SavePass" text="Save" visible="false">
                                  <graphic>
                                     <SVGPath content="M 9 16.2 L 4.8 12 l -1.4 1.4 L 9 19 L 21 7 l -1.4 -1.4 L 9 16.2 Z" fill="WHITE" styleClass="icon_button" />
                                  </graphic>
                               </Button>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditPass" text="Edit">
+                              <Button fx:id="EditPassButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditPass" text="Edit">
                                  <graphic>
                                     <SVGPath content="M 14.06 9.02 l 0.92 0.92 L 5.92 19 H 5 v -0.92 l 9.06 -9.06 M 17.66 3 c -0.25 0 -0.51 0.1 -0.7 0.29 l -1.83 1.83 l 3.75 3.75 l 1.83 -1.83 c 0.39 -0.39 0.39 -1.02 0 -1.41 l -2.34 -2.34 c -0.2 -0.2 -0.45 -0.29 -0.71 -0.29 Z m -3.6 3.19 L 3 17.25 V 21 h 3.75 L 17.81 9.94 l -3.75 -3.75 Z" styleClass="icon_button" />
                                  </graphic>
@@ -156,12 +156,12 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Hint: " />
                         <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="200.0" styleClass="primary_color">
                            <children>
-                              <Text fx:id="acessHintOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Hint">
+                              <Text fx:id="accessHintOutput" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-color" text="Hint">
                                  <StackPane.margin>
                                     <Insets left="5.0" right="5.0" />
                                  </StackPane.margin>
                               </Text>
-                              <TextField fx:id="acessHintInput" prefHeight="26.0" prefWidth="177.0" styleClass="text-field" visible="false" />
+                              <TextField fx:id="accessHintInput" prefHeight="26.0" prefWidth="177.0" styleClass="text-field" visible="false" />
                            </children>
                            <HBox.margin>
                               <Insets left="25.0" />
@@ -169,12 +169,12 @@
                         </StackPane>
                         <StackPane prefHeight="26.0" prefWidth="0.0">
                            <children>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SaveHint" text="Save" visible="false">
+                              <Button fx:id="SaveHintButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#SaveHint" text="Save" visible="false">
                                  <graphic>
                                     <SVGPath content="M 9 16.2 L 4.8 12 l -1.4 1.4 L 9 19 L 21 7 l -1.4 -1.4 L 9 16.2 Z" fill="WHITE" styleClass="icon_button" />
                                  </graphic>
                               </Button>
-                              <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditHint" text="Edit">
+                              <Button fx:id="EditHintButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#EditHint" text="Edit">
                                  <graphic>
                                     <SVGPath content="M 14.06 9.02 l 0.92 0.92 L 5.92 19 H 5 v -0.92 l 9.06 -9.06 M 17.66 3 c -0.25 0 -0.51 0.1 -0.7 0.29 l -1.83 1.83 l 3.75 3.75 l 1.83 -1.83 c 0.39 -0.39 0.39 -1.02 0 -1.41 l -2.34 -2.34 c -0.2 -0.2 -0.45 -0.29 -0.71 -0.29 Z m -3.6 3.19 L 3 17.25 V 21 h 3.75 L 17.81 9.94 l -3.75 -3.75 Z" styleClass="icon_button" />
                                  </graphic>
@@ -379,12 +379,7 @@
                         </VBox>
                         <HBox layoutX="286.0" layoutY="383.0" prefHeight="36.0" prefWidth="139.0" rotate="28.3" spacing="10.0" AnchorPane.rightAnchor="129.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#SaveThemeChange" text="SAVE">
-                                 <font>
-                                    <Font name="Agency FB Bold" size="18.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" onAction="#CancelThemeChange" text="CANCEL">
+                              <Button mnemonicParsing="false" onAction="#SaveThemeChange" text="CHANGE THEME">
                                  <font>
                                     <Font name="Agency FB Bold" size="18.0" />
                                  </font>

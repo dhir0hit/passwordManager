@@ -41,7 +41,7 @@ public class Application extends javafx.application.Application {
         newStage.setScene(scene);
         newStage.show();
         primaryStage = newStage;
-        newStage.setOnCloseRequest(windowEvent -> encryptFile(Integer.parseInt(startWindowController.inputAccessPass)));
+        newStage.setOnCloseRequest(windowEvent -> encryptFile(Integer.parseInt(accessData.ACCESSPASS)));
     }
 
     public static void closeWindow(String stageName) {

@@ -3,6 +3,7 @@ package com.example.passwordmanager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
@@ -17,19 +18,43 @@ import java.util.Scanner;
 public class ApplicationSettings implements Initializable {
 
     @FXML
+    private Button EditHintButton;
+
+    @FXML
+    private Button EditMailButton;
+
+    @FXML
+    private Button EditNameButton;
+
+    @FXML
+    private Button EditPassButton;
+
+    @FXML
     private ScrollPane HomePageWindow;
 
     @FXML
-    private TextField acessHintInput;
+    private Button SaveHintButton;
 
     @FXML
-    private Text acessHintOutput;
+    private Button SaveMailButton;
 
     @FXML
-    private TextField acessPassInput;
+    private Button SaveNameButton;
 
     @FXML
-    private Text acessPassOutput;
+    private Button SavePassButton;
+
+    @FXML
+    private TextField accessHintInput;
+
+    @FXML
+    private Text accessHintOutput;
+
+    @FXML
+    private TextField accessPassInput;
+
+    @FXML
+    private Text accessPassOutput;
 
     @FXML
     private Rectangle highLightColor_Show;
@@ -64,42 +89,79 @@ public class ApplicationSettings implements Initializable {
 
     @FXML
     void EditHint(ActionEvent event) {
-
+        accessHintOutput.setVisible(false);
+        accessHintInput.setVisible(true);
+        EditHintButton.setVisible(false);
+        SaveHintButton.setVisible(true);
     }
 
     @FXML
     void EditMail(ActionEvent event) {
-
+        mailOutput.setVisible(false);
+        mailInput.setVisible(true);
+        EditMailButton.setVisible(false);
+        SaveMailButton.setVisible(true);
     }
 
     @FXML
     void EditName(ActionEvent event) {
-
+        nameOutput.setVisible(false);
+        nameInput.setVisible(true);
+        EditNameButton.setVisible(false);
+        SaveNameButton.setVisible(true);
     }
 
     @FXML
     void EditPass(ActionEvent event) {
-
+        accessPassOutput.setVisible(false);
+        accessPassInput.setVisible(true);
+        EditPassButton.setVisible(false);
+        SavePassButton.setVisible(true);
     }
 
     @FXML
     void SaveHint(ActionEvent event) {
+        accessHintOutput.setVisible(true);
+        accessHintInput.setVisible(false);
+        EditHintButton.setVisible(true);
+        SaveHintButton.setVisible(false);
+
+        accessHintOutput.setText(accessHintInput.getText());
+        accessData.changeAccessPass(accessPassOutput.getText(), accessHintOutput.getText());
 
     }
 
     @FXML
     void SaveMail(ActionEvent event) {
+        mailOutput.setVisible(true);
+        mailInput.setVisible(false);
+        EditMailButton.setVisible(true);
+        SaveMailButton.setVisible(false);
 
+        mailOutput.setText(mailInput.getText());
+        accessData.ChangeAccessInfo(nameOutput.getText(), mailOutput.getText());
     }
 
     @FXML
     void SaveName(ActionEvent event) {
+        nameOutput.setVisible(true);
+        nameInput.setVisible(false);
+        EditNameButton.setVisible(true);
+        SaveNameButton.setVisible(false);
 
+        nameOutput.setText(nameInput.getText());
+        accessData.ChangeAccessInfo(nameOutput.getText(), mailOutput.getText());
     }
 
     @FXML
     void SavePass(ActionEvent event) {
+        accessPassOutput.setVisible(true);
+        accessPassInput.setVisible(false);
+        EditPassButton.setVisible(true);
+        SavePassButton.setVisible(false);
 
+        accessPassOutput.setText(accessPassInput.getText());
+        accessData.changeAccessPass(accessPassOutput.getText(), accessHintOutput.getText());
     }
 
     @FXML
@@ -211,6 +273,14 @@ public class ApplicationSettings implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         short count = 0;
+
+        nameOutput.setText(accessData.getAccessUserName());
+        mailOutput.setText(accessData.getAccessMail());
+        accessPassOutput.setText(accessData.ACCESSPASS);
+        accessHintOutput.setText(accessData.getAccessPass().split("~")[1]);
+
+
+
         try {
             Scanner scanner = new Scanner(new File("src/main/resources/com/example/passwordmanager/css/Theme.css"));
             while (scanner.hasNextLine()) {

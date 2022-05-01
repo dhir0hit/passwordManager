@@ -20,7 +20,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<StackPane maxHeight="500.0" maxWidth="750.0" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.startWindowController">
+<StackPane maxHeight="500.0" maxWidth="750.0" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordmanager.startWindowController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -50,9 +50,9 @@
                   </Text>
                </children>
             </TextFlow>
-            <TextFlow layoutX="155.0" layoutY="181.0" prefHeight="14.0" prefWidth="70.0" translateZ="-1.0">
+            <TextFlow layoutX="155.0" layoutY="181.0" prefHeight="35.0" prefWidth="92.0" translateZ="-1.0">
                <children>
-                  <Text fx:id="inputErrorDisplay" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Try again!" visible="false">
+                  <Text fx:id="inputErrorDisplay" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="TRY AGAIN!" visible="false" wrappingWidth="77.8447265625">
                      <font>
                         <Font name="Arial" size="15.0" />
                      </font>
@@ -92,7 +92,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="23.0" prefWidth="170.0" spacing="6.0">
                            <children>
-                              <PasswordField fx:id="passwordInput" maxHeight="1.7976931348623157E308" onKeyPressed="#passwordInputCheck" prefHeight="25.0" promptText="Password" styleClass="passwordField">
+                              <PasswordField fx:id="passwordInput" maxHeight="1.7976931348623157E308" onKeyReleased="#passwordInputCheck" prefHeight="25.0" promptText="Password" styleClass="passwordField">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
