@@ -1,4 +1,0 @@
-123
-N hint
-dhir
-mail@mail,com
